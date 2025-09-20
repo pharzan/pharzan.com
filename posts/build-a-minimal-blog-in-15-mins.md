@@ -1,10 +1,10 @@
 ---
 layout: layout.vto
-title: First post - Setup a minimal blog in less than 15 minutes
+title: Setup a minimal blog in less than 15 minutes
 description: "Create a minimal blog in less than 15 minutes"
 bodyClass: me-page
 ---
-# A place to begin
+# Create a minimal blog in less than 15 minutes
 
 I decided to create a [blog](/posts/first-post) and the challenge is to create a minimal blog in less than 15 minutes.
 
