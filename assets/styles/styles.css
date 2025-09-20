@@ -1,0 +1,242 @@
+/* ===== Base: type, rhythm, & colors ===== */
+.me-page {
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+               "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+               "Liberation Mono", "Courier New", monospace;
+
+  /* Sizing */
+  --max-width: 72ch;
+  --line-height: 1.65;
+  --line-height-tight: 1.2;
+
+  /* Light theme colors */
+  --bg: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --link: #1d4ed8;
+  --link-visited: #7c3aed;
+  --border: #e2e8f0;
+  --code-bg: #f8fafc;
+  --mark: #fff4a3;
+
+  /* Accents */
+  --hr: #e5e7eb;
+  --focus: 2px solid #0ea5e9;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .me-page {
+    --bg: #0b1020;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --link: #93c5fd;
+    --link-visited: #c4b5fd;
+    --border: #1f2937;
+    --code-bg: #0f172a;
+    --hr: #1f2937;
+    --mark: #3b82f633;
+  }
+}
+
+/* ===== Global layout ===== */
+.me-page,
+.me-page *::before,
+.me-page *::after { box-sizing: border-box; }
+
+.me-page html { scroll-behavior: smooth; }
+
+.me-page {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.me-page main {
+  max-width: var(--max-width);
+  padding: 6rem 1.25rem 8rem;
+  margin-inline: auto;
+}
+
+/* ===== Typography ===== */
+.me-page h1,
+.me-page h2,
+.me-page h3 {
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.01em;
+  margin: 2.2rem 0 0.8rem;
+  font-weight: 750;
+}
+
+.me-page h1 { font-size: clamp(1.9rem, 3.2vw + 1rem, 2.6rem); }
+.me-page h2 { font-size: clamp(1.35rem, 1.2vw + 1rem, 1.6rem); }
+.me-page h3 { font-size: clamp(1.15rem, 0.8vw + 0.9rem, 1.25rem); }
+
+.me-page p,
+.me-page ul,
+.me-page ol,
+.me-page pre,
+.me-page table,
+.me-page blockquote { margin: 0.9rem 0 0; }
+
+.me-page strong { font-weight: 700; }
+.me-page em { font-style: italic; }
+.me-page small { font-size: 0.9em; color: var(--muted); }
+
+.me-page hr {
+  border: 0;
+  border-top: 1px solid var(--hr);
+  margin: 2rem 0;
+}
+
+.me-page ul,
+.me-page ol {
+  padding-left: 1.2rem;
+}
+.me-page li + li { margin-top: 0.35rem; }
+
+.me-page h2[id]::before,
+.me-page h3[id]::before {
+  content: "§";
+  margin-right: 0.5rem;
+  color: transparent;
+  transition: color 0.2s ease;
+}
+.me-page h2[id]:hover::before,
+.me-page h3[id]:hover::before { color: var(--muted); }
+
+/* ===== Links ===== */
+.me-page a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+}
+.me-page a:visited { color: var(--link-visited); }
+.me-page a:hover { text-decoration-thickness: 2px; }
+.me-page a:focus-visible { outline: var(--focus); outline-offset: 2px; border-radius: 4px; }
+
+/* ===== “CV” formatting niceties ===== */
+.me-page h1 + .meta,
+.me-page .meta {
+  color: var(--muted);
+  margin-top: -0.4rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.98rem;
+}
+
+.me-page section + section { margin-top: 2.2rem; }
+
+.me-page dl { margin: 1rem 0 0; }
+.me-page dt { font-weight: 700; margin-top: 1rem; }
+.me-page dd { margin: 0.25rem 0 0 0; }
+
+/* ===== Code, quotes, and callouts ===== */
+.me-page code,
+.me-page pre,
+.me-page kbd,
+.me-page samp {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+}
+
+.me-page pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.me-page code {
+  background: var(--code-bg);
+  padding: 0.15em 0.35em;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.me-page blockquote {
+  border-left: 4px solid var(--border);
+  margin: 1.2rem 0 0;
+  padding: 0.5rem 1rem;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--code-bg) 70%, transparent);
+  border-radius: 6px;
+}
+
+/* ===== Tables (if used) ===== */
+.me-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+.me-page th,
+.me-page td {
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.me-page th {
+  text-align: left;
+  font-weight: 700;
+}
+.me-page tbody tr:hover {
+  background: color-mix(in srgb, var(--code-bg) 65%, transparent);
+}
+
+/* ===== Media ===== */
+.me-page img,
+.me-page video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.me-page figure { margin: 1rem 0 0; }
+.me-page figcaption {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+}
+
+/* ===== Utilities ===== */
+.me-page .mark { background: var(--mark); padding: 0.1em 0.25em; border-radius: 4px; }
+.me-page .muted { color: var(--muted); }
+.me-page .lead  { font-size: 1.1rem; color: var(--muted); }
+
+/* ===== Accessibility & polish ===== */
+.me-page ::selection { background: #fde68a; color: #111827; }
+.me-page :focus-visible { outline: var(--focus); outline-offset: 3px; border-radius: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .me-page * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Narrow screens */
+@media (max-width: 640px) {
+  .me-page main { padding: 4rem 1rem 6rem; }
+  .me-page h1 { font-size: clamp(1.8rem, 6vw, 2.2rem); }
+}
+
+/* Print styles */
+@media print {
+  .me-page {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+  .me-page a { color: black; text-decoration: none; }
+  .me-page main { max-width: none; padding: 0; }
+  .me-page img,
+  .me-page video { break-inside: avoid; }
+  .me-page header,
+  .me-page footer { display: none; }
+}

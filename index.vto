@@ -1,0 +1,17 @@
+---
+layout: layout.vto
+title: Farzan Tinati
+bodyClass: me-page
+---
+<a href="/me"> About me</a>
+<hr />
+
+{{ for post of search.pages("url^=/posts/") }}
+  <article class="post-summary">
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    <div class="post-description">
+    <p>{{ post.description }}</p>
+    </div>
+  </article>
+  <hr />
+{{ /for }}
