@@ -6,7 +6,7 @@ bodyClass: me-page
 ---
 # A place to begin
 
-The purpose of this blog is to share my thoughts, reflections, learnings. I’ve been wanting to start something like this for a while, and now feels like the right time.
+The purpose of this blog is to share my thoughts, reflections, learnings and experiences. I’ve been wanting to start something like this for a while, and now feels like the right time.
 
 Here, I plan to reflect on the past, document what I’ve learned—both technical and non-technical—and keep learning along the way. I also want this to be a space for experiments and ideas. I’m not entirely sure how I’ll organize those yet, but for now, simply starting the blog feels like the most important first step.
 
