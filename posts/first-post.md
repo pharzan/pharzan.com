@@ -61,5 +61,11 @@ Once you have done these steps you can deploy with
 ```
 firebase deploy --only hosting
 ```
-A cool last touch would be to configure github actions to auto deploy so whenever we push changes to main we get the latest deployed version.
+A last touch would be to configure github actions to auto deploy. Which means whenever we merge changes to git on main we get the latest deployed version.
 
+To get the configuration for this you can run `firebase init`and select Hosting: Set up GitHub Action deploys. This will create two files under .github/workflows.
+
+These files are for node and we need to make some changes for it to work with out Deno project.
+using the deno image we can run our `deno task build` command to build the project.
+
+I am happy for now but will definitely improve this blog as I go along.
