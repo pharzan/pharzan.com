@@ -20,7 +20,7 @@ Now to figure out how to organize and configure the code.
 
 ## Reproduce This Setup (DIY)
 ### 1) Prereqs
-- Install [Deno](https://deno.com/manual/getting_started/installation).
+Install [Deno](https://deno.com/manual/getting_started/installation).
 ### 2) Scaffold the project
 ```bash
 mkdir my-blog && cd my-blog
@@ -66,4 +66,4 @@ To get the configuration for this you can run `firebase init`and select Hosting:
 These files are for node and we need to make some changes for it to work with out Deno project.
 using the deno image we can run our `deno task build` command to build the project.
 
-I am happy for now but will definitely improve this blog as I go along.
+I am happy for now but will be improving it in the future.
