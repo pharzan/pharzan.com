@@ -16,7 +16,7 @@
   --bg: #ffffff;
   --text: #0f172a;
   --muted: #475569;
-  --link: #1d4ed8;
+  --link: #7c3aed;
   --link-visited: #7c3aed;
   --border: #e2e8f0;
   --code-bg: #f8fafc;
@@ -24,7 +24,7 @@
 
   /* Accents */
   --hr: #e5e7eb;
-  --focus: 2px solid #0ea5e9;
+  --focus: 2px solid #7c3aed;;;
 }
 
 /* Dark mode */
@@ -33,7 +33,7 @@
     --bg: #0b1020;
     --text: #e5e7eb;
     --muted: #9ca3af;
-    --link: #93c5fd;
+    --link: #ccafff;
     --link-visited: #c4b5fd;
     --border: #1f2937;
     --code-bg: #0f172a;
