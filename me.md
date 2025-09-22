@@ -12,21 +12,35 @@ bodyClass: me-page
 
 ---
 
-## Core Skills
-Curious and product-oriented full-stack engineer with a strong fit for fast-moving startup environments. Designs and ships products end-to-end, from concept to cloud deployment, while writing clean, scalable code and collaborating across disciplines.
+Curious and product-oriented full-stack engineer looking for fast-moving startup environments. Designs and ships products end-to-end, from concept to cloud deployment with a strong record of fast prototyping, while writing clean, scalable code and collaborating across disciplines. Passionate about turning ideas into high-impact products.
 
 ---
 
-## Tech Stack
-**Backend:** Python (FastAPI, Pydantic, SQLAlchemy, Alembic, Pytest), Node.js (Express, Knex), PostgreSQL, MySQL  
+## Professional skills
+** Product & Collaboration**:
+- Fast prototyping and MVP development,
+- Cross-disciplinary teamwork with engineers, designers, and product managers,
+- Pre-sales and post-sales technical support and onboarding
+** Interests:** 
+- IoT prototyping with Arduino/Raspberry Pi
+- 3D printing and CAD/CAM modeling
+- AI agent automation
 
-**Frontend:** React, Next.js, TypeScript, Vue.js, Three.js  
-
-**Cloud & DevOps:** Terraform (IaC), Docker, GitHub Actions (CI/CD), GCP, AWS, Firebase  
-
-**Data & Visualization:** Three.js, Mapbox, parametric design  
-
-**Maker & IoT:** IoT prototyping with Arduino/Raspberry Pi, 3D printing and CAD/CAM modeling  
+** Backend: **
+- Python (FastAPI, Pydantic, SQLAlchemy, Alembic, Pytest)
+- Node.js (Express, Knex),
+** Frontend **
+- TypeScript
+- React, Next.js 
+- Vue.js 
+- Three.js 
+- Mapbox
+- parametric design
+Cloud & DevOps:
+- Terraform (IaC) 
+- Docker
+- GitHub Actions (CI/CD)
+- GCP, AWS, Firebase
 
 ---
 
@@ -34,10 +48,16 @@ Curious and product-oriented full-stack engineer with a strong fit for fast-movi
 ### Full-Stack Engineer — Shapemaker  
 *Oslo, Norway • Jul 2022 – Present*  
 Cloud-based structural engineering design and analysis platform for telecommunication infrastructure  
-- **Geometry & Modeling:** Created parametric structural modeling workflows to generate finite element geometry; designed and automated cross-section geometry and property calculations to create a flexible system and reduce system input data complexity.  
-- **Visualization:** Built a 2D/3D visualization engine to display and render models in the browser via REST API communication, resulting in ~4× faster rendering compared to the initial MVP.  
-- **Cross-disciplinary collaboration:** Worked with structural engineers, driving the product from initial concept to a scalable solution while solving complex engineering problems.  
-- Contributed by writing an automated buckling system and buckling length calculations engine, reducing data onboarding and saving up to 2 days of work for every initial data onboarding.
+- **Geometry & Modeling:** Created parametric structural modeling workflows to generate finite element models; Designed and automated cross-section geometry and property calculations to create a flexible system and to reduce system input data complexity.
+
+- **Digital twin:** Built a 2D/3D visualization engine to display and render models in the browser via
+communication over REST API. This resulted in rendering becoming 4× faster from the initial
+MVP and created interactive 2D technical drawings of telecom structures.
+
+- **Cross-disciplinary collaboration:** Worked with structural engineers, driving the product from initial concept to a scalable solution while solving complex engineering problems.
+
+- Built an automated structural-analysis module that eliminated roughly two days of manual preparation per new customer, reducing data onboarding time and lowering customer-acquisition cost.
+
 
 ### Lead Full-Stack Developer — Justsnap  
 *Istanbul, Turkey • Aug 2020 – Sep 2022*  
