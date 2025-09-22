@@ -17,19 +17,20 @@ Curious and product-oriented full-stack engineer looking for fast-moving startup
 ---
 
 ## Professional skills
-** Product & Collaboration**:
+**Product & Collaboration**:
 - Fast prototyping and MVP development,
 - Cross-disciplinary teamwork with engineers, designers, and product managers,
 - Pre-sales and post-sales technical support and onboarding
-** Interests:** 
+**Interests:** 
 - IoT prototyping with Arduino/Raspberry Pi
 - 3D printing and CAD/CAM modeling
 - AI agent automation
 
-** Backend: **
+**Backend:**
 - Python (FastAPI, Pydantic, SQLAlchemy, Alembic, Pytest)
-- Node.js (Express, Knex),
-** Frontend **
+- Node.js (Express, Knex)
+
+**Frontend**
 - TypeScript
 - React, Next.js 
 - Vue.js 
