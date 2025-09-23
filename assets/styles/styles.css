@@ -279,3 +279,100 @@
   font-size: 0.95rem;
   line-height: 1.5;
 }
+
+/* ===== Mobile readability tweaks ===== */
+
+/* Slightly roomier line-height and better long-word handling on small screens */
+@media (max-width: 640px) {
+  .me-page {
+    line-height: 1.65;
+    text-wrap: pretty;
+    overflow-wrap: anywhere;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .me-page main {
+    padding: 1rem;                 /* a bit tighter than 1.5em */
+    max-width: 38em;               /* reduce line-length target on small screens */
+  }
+
+  /* Headings: reduce vertical whitespace so content stays visible */
+  .me-page h1,
+  .me-page h2,
+  .me-page h3 {
+    margin: 1.6rem 0 0.9rem;
+  }
+
+  /* Post list spacing + tap targets */
+  .me-page article.post-summary {
+    margin: 1rem 0;
+  }
+  .me-page .post-title a {
+    display: inline-block;
+    padding: 0.25rem 0;            /* improves finger target without changing layout */
+  }
+  .me-page .post-date {
+    font-size: 0.85rem;
+  }
+
+  /* Nav becomes horizontally scrollable if it overflows */
+  .me-page nav,
+  .me-page nav-bar {
+    gap: 0.5rem;
+    font-size: 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem;
+  }
+  .me-page nav a,
+  .me-page nav-bar a {
+    display: inline-block;
+    padding: 0.5rem 0.5rem;        /* 44px-ish tap height with line-height */
+  }
+
+  /* Images/videos: lighter frame on very small screens */
+  .me-page img,
+  .me-page video {
+    padding: 0.25em;
+    border-radius: 6px;
+  }
+
+  /* Code blocks: wrap long lines to avoid horizontal scroll hell */
+  .me-page pre {
+    white-space: pre-wrap;         /* wrap long lines */
+    word-break: break-word;
+  }
+  .me-page code {
+    word-break: break-word;
+  }
+
+  /* Tables: allow horizontal scroll instead of crushing columns */
+  .me-page table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .me-page thead,
+  .me-page tbody,
+  .me-page tr {
+    width: 100%;
+  }
+}
+
+/* Ultra-narrow devices: gently bump base size for legibility */
+@media (max-width: 360px) {
+  .me-page { font-size: 112.5%; }  /* ~18px base; headings already clamp */
+}
+
+/* Improve focus visibility on dark backgrounds (mobile often in dark mode) */
+@media (prefers-color-scheme: dark) {
+  .me-page :focus-visible {
+    outline-color: #38bdf8;        /* slightly brighter for OLEDs */
+  }
+}
+
+/* Reduce excessive table height on short mobile viewports */
+@media (max-height: 700px) {
+  .me-page tbody { max-height: 55vh; }
+}
