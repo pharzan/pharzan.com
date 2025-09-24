@@ -4,6 +4,7 @@ title: Setup a minimal blog in less than 15 minutes
 description: "Create a minimal blog in less than 15 minutes"
 bodyClass: me-page
 date: 2025-09-21
+tags: [deno, lume, blog, firebase]
 ---
 # Create a minimal blog in less than 15 minutes
 
@@ -20,14 +21,23 @@ Now to figure out how to organize and configure the code.
 ---
 
 ## Reproduce This Setup (DIY)
-### 1) Prereqs
-Install [Deno](https://deno.com/manual/getting_started/installation).
+Make sure you have these installed:
+
+- [Deno](https://deno.com/manual/getting_started/installation)
+- [Git](https://git-scm.com/) (to push to GitHub)
+- [Firebase CLI](https://firebase.google.com/docs/cli)
+
 ### 2) Scaffold the project
 ```bash
 mkdir my-blog && cd my-blog
 deno run -A https://lume.land/init.ts
 ```
 This will create _cms.ts, _config.ts and deno.json and you can run the serve task to spin up the dev server.
+
+```sh
+deno task serve
+```
+
 ### 3) Configure the pages
 Add a new file named `index.vto` which will handle the posts.
 The posts will go unde the /posts folder and I want lume to fetch any .md file within that folder and show it to the user.
@@ -45,6 +55,29 @@ Eventually I ended up with something like the below file for the contents of ind
   </article>
   <hr />
 {{ /for }}
+```
+### 4) Configure Lume
+below adds the plugins to lume.
+```sh
+import lume from "lume/mod.ts";
+import metas from "lume/plugins/metas.ts";
+import sitemap from "lume/plugins/sitemap.ts";
+import feed from "lume/plugins/feed.ts";
+import search from "lume/plugins/search.ts";
+import date from "lume/plugins/date.ts";
+
+const site = lume({
+  location: new URL("https://yourdomain.com"),
+});
+
+site.use(feed({ output: ["/feed.xml"] }));
+site.copy("assets");
+site.use(metas());
+site.use(sitemap());
+site.use(search());
+site.use(date());
+
+export default site;
 ```
 Finally would be to add some styles and to deploy it.
 Quickest and one of the easiest ways to deploy is to use firebase. All you need to do is to make sure you have firebase installed.

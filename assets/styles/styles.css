@@ -14,7 +14,7 @@
   --bg: #ffffff;
   --text: #0f172a;
   --muted: #475569;
-  --link: #1d4ed8;
+  --link: #c4b5fd;
   --link-visited: #7c3aed;
   --border: #e2e8f0;
   --code-bg: #f8fafc;
@@ -30,7 +30,7 @@
     --bg: #0b1020;
     --text: #e5e7eb;
     --muted: #9ca3af;
-    --link: #93c5fd;
+    --link: #c4b5fd;
     --link-visited: #c4b5fd;
     --border: #1f2937;
     --code-bg: #0f172a;
@@ -269,7 +269,7 @@
 }
 
 .me-page article.post-summary {
-  margin: 1.2rem 0;
+  margin: 0.5rem 0;
   padding: 0;          
 }
 
@@ -280,6 +280,27 @@
   line-height: 1.5;
 }
 
+.me-page .site-nav {
+  /* matches the main container’s width & centering automatically because it lives inside <main> */
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;                 /* visual separator instead of pipes */
+  padding-block: 0.5rem;        /* internal breathing room */
+  margin-bottom: 1.75rem;       /* space from content (increase/decrease to taste) */
+  border-bottom: 1px solid var(--hr);
+  flex-wrap: wrap;
+}
+
+.me-page .site-nav a {
+  padding: 0.25rem 0.4rem;      /* comfortable tap target without looking “buttony” */
+  border-radius: 6px;           /* helps focus ring look neat */
+}
+
+/* Optional: indicate current page if you add 'aria-current="page"' on the active link later */
+.me-page .site-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 /* ===== Mobile readability tweaks ===== */
 
 /* Slightly roomier line-height and better long-word handling on small screens */

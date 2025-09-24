@@ -4,20 +4,19 @@
     <meta charset="UTF-8" />
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ title ? title + ' · Farzan Tinati' : 'Farzan Tinati' }}" />
     <meta property="og:description" content="{{ description }}" />
     <meta property="og:url" content="{{ page.url | url }}" />
-
-  <link rel="stylesheet" href="/assets/styles/styles.css" />
+    <link rel="stylesheet" href="/assets/styles/styles.css" />
   </head>
   <body class="{{ bodyClass }}">
     <main>
-    <nav-bar class="nav-bar">
-        <a href="/">Home</a>|
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/">Home</a>
         <a href="/me">About me</a>
-    </nav-bar>
+      </nav>
+
       {{ content }}
     </main>
   </body>
