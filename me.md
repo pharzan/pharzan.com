@@ -8,7 +8,7 @@ bodyClass: me-page
 ---
 
 # Farzan Tinati  
-**Full-Stack Software Engineer** • Oslo, Norway • [LinkedIn](https://linkedin.com/in/pharzan)
+**Full-Stack Software Engineer** • Oslo, Norway • [LinkedIn](https://linkedin.com/in/pharzan)[Github](https://github.com/pharzan)
 
 ---
 
@@ -62,9 +62,11 @@ MVP and created interactive 2D technical drawings of telecom structures.
 
 ### Lead Full-Stack Developer — Justsnap  
 *Istanbul, Turkey • Aug 2020 – Sep 2022*  
-- Designed a configurable, template-based campaign website generator serving 10+ retail promotions every month.  
-- Built dashboards to process and visualize receipt/user data.  
-- Developed configurable Facebook Messenger chatbots.  
+Designed a configurable, template-based campaign website generator serving 10+ retail promotions every month.  
+- **Site-Builder:** Designed and implemented a template-driven rendering engine that accepts configurable campaign data and composes dynamic UI layouts on the fly, powering a site-builder–style platform for marketing campaigns. Integrated interactive dashboards, automated receipt processing, and advanced data-visualization features
+
+- **Chatbot:** Developed configurable Facebook Messenger chatbots, working with various APIs and webhooks to create flexible, scenario-based chat bots.
+
 - Integrated payment APIs to fully automate end-user payments.
 
 *(Earlier roles include Full-Stack Developer at Varman, Frontend Developer at Voscreen, and Web Developer at Walltion.)*
