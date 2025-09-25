@@ -8,7 +8,7 @@ bodyClass: me-page
 ---
 
 # Farzan Tinati  
-**Full-Stack Software Engineer** • Oslo, Norway • [LinkedIn](https://linkedin.com/in/pharzan)[Github](https://github.com/pharzan)
+**Full-Stack Software Engineer** • Oslo, Norway • [LinkedIn](https://linkedin.com/in/pharzan) | [Github](https://github.com/pharzan) | [PDF](../assets/Farzan-Tinati.pdf)
 
 ---
 
