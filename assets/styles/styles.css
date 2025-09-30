@@ -381,6 +381,13 @@
   }
 }
 
+.me-page .hero-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;   
+  object-fit: cover;    
+}
+
 /* Ultra-narrow devices: gently bump base size for legibility */
 @media (max-width: 360px) {
   .me-page { font-size: 112.5%; }  /* ~18px base; headings already clamp */
@@ -397,3 +404,4 @@
 @media (max-height: 700px) {
   .me-page tbody { max-height: 55vh; }
 }
+
