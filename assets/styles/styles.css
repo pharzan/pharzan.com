@@ -86,9 +86,9 @@
   color: color-mix(in srgb, var(--text) 75%, var(--muted));
 }
 
-.me-page h1 { font-size: clamp(1.9rem, 3.2vw + 1rem, 2.6rem); }
-.me-page h2 { font-size: clamp(1.35rem, 1.2vw + 1rem, 1.6rem); }
-.me-page h3 { font-size: clamp(1.15rem, 0.8vw + 0.9rem, 1.25rem); }
+.me-page h1 { font-size: clamp(1.6rem, 2.2vw + 1rem, 2.1rem); }
+.me-page h2 { font-size: clamp(1.25rem, 1vw + 0.9rem, 1.45rem); }
+.me-page h3 { font-size: clamp(1.05rem, 0.6vw + 0.85rem, 1.15rem); }
 
 .me-page p { margin: 1em 0; }               /* simple rhythm like the article */
 .me-page strong { font-weight: 700; }
@@ -249,7 +249,7 @@
 
 .me-page .post-title {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   font-weight: 600;
   color: var(--text);
 }
