@@ -8,7 +8,8 @@
     "build": "deno task lume",
     "serve": "deno task lume -s",
     "cms": "deno task lume cms",
-    "deploy": "deno task build && firebase deploy --only hosting:pharzan"
+    "deploy": "deno task build && firebase deploy --only hosting:pharzan",
+    "new-post": "deno run --allow-read --allow-write scripts/new-post.ts"
   },
   "compilerOptions": {
     "types": [
