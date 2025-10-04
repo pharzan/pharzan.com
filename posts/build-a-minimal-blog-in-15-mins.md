@@ -42,7 +42,7 @@ deno task serve
 Add a new file named `index.vto` which will handle the posts.
 The posts will go unde the /posts folder and I want lume to fetch any .md file within that folder and show it to the user.
 Eventually I ended up with something like the below file for the contents of index.vto
-```
+```html
 <a href="/me"> About me</a>
 <hr />
 
@@ -58,7 +58,7 @@ Eventually I ended up with something like the below file for the contents of ind
 ```
 ### 4) Configure Lume
 below adds the plugins to lume.
-```sh
+```js
 import lume from "lume/mod.ts";
 import metas from "lume/plugins/metas.ts";
 import sitemap from "lume/plugins/sitemap.ts";
@@ -85,12 +85,12 @@ Login to firebase in your cli and initialize hosting.
 
 Make sure you create the firebase project from the firebase console.
 
-```
+```sh
 firebase login
 firebase init hosting
 ```
 Once you have done these steps you can deploy with
-```
+```sh
 firebase deploy --only hosting
 ```
 A last touch would be to configure github actions to auto deploy. Which means whenever we merge changes to git on main we get the latest deployed version.

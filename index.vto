@@ -5,22 +5,28 @@ bodyClass: me-page
 ---
 <section class="hero">
   <img class="hero-avatar" src="../assets/avatar.jpg" alt="Farzan Tinati" />
-  <h1 class="hero-title">Hi I'm Farzan,</h1>
-  <p class="hero-sub">
-    Product-oriented Full-Stack Mechanical Engineer, 6+ yrs startup experience, shipping high-impact products from concept to launch, BSc
-  </p>
-
+  <div class="hero-content">
+    <h1 class="hero-title">Farzan Tinati</h1>
+    <p class="hero-sub">
+      Product-oriented Full-Stack Mechanical Engineer, 6+ yrs startup experience, shipping high-impact products from concept to launch, BSc
+    </p>
+  </div>
 </section>
 
-{{ for post of search.pages("url^=/posts/") }}
-  <article class="post-summary">
-    <header class="post-header">
-      <h3 class="post-title">
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      </h3>
-      {{ if post.date }}
-        <time class="post-date">{{ post.date |> date("yyyy-MM-dd") }}</time>
-      {{ /if }}
-    </header>
-  </article>
-{{ /for }}
+<hr />
+
+<section class="posts">
+  <h2>Posts</h2>
+  {{ for post of search.pages("url^=/posts/") }}
+    <article class="post-summary">
+      <header class="post-header">
+        <h3 class="post-title">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h3>
+        {{ if post.date }}
+          <time class="post-date">{{ post.date |> date("yyyy-MM-dd") }}</time>
+        {{ /if }}
+      </header>
+    </article>
+  {{ /for }}
+</section>
