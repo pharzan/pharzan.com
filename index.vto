@@ -17,14 +17,14 @@ bodyClass: me-page
 
 <section class="posts">
   <h2>Posts</h2>
-  {{ for post of search.pages("url^=/posts/") }}
+  {{ for post of search.pages("url^=/posts/", "date=desc") }}
     <article class="post-summary">
       <header class="post-header">
         <h3 class="post-title">
           <a href="{{ post.url }}">{{ post.title }}</a>
         </h3>
         {{ if post.date }}
-          <time class="post-date">{{ post.date |> date("yyyy-MM-dd") }}</time>
+          <time class="post-date">{{ post.date |> date("yyyy-MM-dd HH:mm") }}</time>
         {{ /if }}
       </header>
     </article>

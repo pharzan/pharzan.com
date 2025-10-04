@@ -3,7 +3,7 @@ layout: layout.vto
 title: Setup a minimal blog in less than 15 minutes
 description: "Create a minimal blog in less than 15 minutes"
 bodyClass: me-page
-date: 2025-09-21
+date: 2025-09-20 14:30
 tags: [deno, lume, blog, firebase]
 ---
 # Create a minimal blog in less than 15 minutes

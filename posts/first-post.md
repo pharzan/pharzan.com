@@ -3,7 +3,7 @@ layout: layout.vto
 title: First post
 description: "Time to start a blog"
 bodyClass: me-page
-date: 2025-09-20
+date: 2025-09-20 10:00
 ---
 # A place to begin
 
