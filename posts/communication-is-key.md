@@ -8,11 +8,11 @@ tags: [communication, leadership, teams, management]
 ---
 # The Power of Communication: Lessons from Building Teams
 
-One of the most valuable lessons I've learned throughout my career is deceptively simple: communication is everything. More specifically, creating the right channels and fostering transparency can transform how teams operate.
+One of the most valuable lessons I've learned throughout my career is deceptively simple: communication is everything. More specifically, creating the right channels and fostering transparency is very crucial.
 
 ## The Transparency Principle
 
-When you put information out there, something interesting happens. The right people respond to it—and even those who don't respond directly begin thinking differently. Their decision-making shifts. Their perspective broadens. This is the compound effect of transparent communication.
+I've learnt when you put information out there, something interesting happens. The right people respond to it—and even those who don't respond directly begin thinking about it. Their decision-making shifts. Their perspective broadens. This is the compound effect of transparent communication. You might not see the effect right from the start but after a while you will realize the difference.
 
 ## The Introvert's Dilemma
 
@@ -30,12 +30,13 @@ Different types of communication require different channels:
 - **Team meetings** for alignment and collective decision-making
 - **One-on-ones** for personal feedback and career development
 - **Async tools** (like Slack) for everyday communication where the others don't make sense
+- **Daily/Bi-Daily standups** useful for aligning on progress
 
 ## Startup Communication vs. Corporate Communication
 
-In the traditional environments I've worked at often operate on a "need-to-know" basis, where managers gate-keep information. This approach takes you up to some point but then it becomes impossible to handle for both parties, it is difficult for the manager and difficult for the employees.
+In the traditional environments I've worked at, often operate on a "need-to-know" basis, where managers gate-keep information. This approach takes you up to some point but then it becomes impossible to handle for both parties, it is difficult for the manager and difficult for the employees.
 
-In startups, you're working with a small team where everyone shares a similar energy level and excitement about succeeding together. Transparency isn't just nice to have-it's essential. When founders and team members alike can see the direction clearly, everyone makes better decisions. 
+In startups, you're working with a small team where everyone shares a similar energy level and excitement about succeeding together. Transparency isn't just nice to have-it's essential and helps keep that energy up. When founders and team members alike can see the direction clearly, everyone makes better decisions. 
 
 Both parties benefit from this open exchange of information.
 
