@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {{ if description }}
+    <meta name="description" content="{{ description }}" />
+    {{ /if }}
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ title ? title + ' · Farzan Tinati' : 'Farzan Tinati' }}" />
     <meta property="og:description" content="{{ description }}" />
