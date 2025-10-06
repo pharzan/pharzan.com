@@ -3,3 +3,6 @@ new-post:
 
 optimize-images:
 	deno run --allow-read --allow-write --allow-run scripts/optimize-images.ts
+
+setup-hooks:
+	bash scripts/setup-hooks.sh

@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Pre-push hook to optimize images before pushing to remote
+# This ensures images are optimized locally instead of in CI/CD
+
+echo "🖼️  Running image optimization before push..."
+
+# Check if we're in a git repository
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    echo "❌ Not a git repository"
+    exit 1
+fi
+
+# Get the root directory of the git repository
+GIT_ROOT=$(git rev-parse --show-toplevel)
+
+# Run image optimization
+cd "$GIT_ROOT" || exit 1
+
+# Check if deno is available
+if ! command -v deno &> /dev/null; then
+    echo "⚠️  Deno not found, skipping image optimization"
+    echo "   Install Deno to enable automatic image optimization"
+    exit 0
+fi
+
+# Run image optimization
+if deno task optimize-images; then
+    echo "✅ Image optimization complete"
+
+    # Check if any images were modified
+    if git diff --quiet assets/; then
+        echo "   No images were optimized"
+    else
+        echo "⚠️  Images were optimized! Please stage and commit the changes:"
+        echo "   git add assets/"
+        echo "   git commit --amend --no-edit"
+        echo ""
+        read -p "Do you want to continue pushing with unoptimized images? (y/N) " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            echo "❌ Push cancelled. Please commit optimized images and try again."
+            exit 1
+        fi
+    fi
+else
+    echo "⚠️  Image optimization failed, but continuing with push"
+fi
+
+exit 0
