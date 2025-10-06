@@ -727,7 +727,7 @@
   border-radius: 0;
   object-fit: cover;
   border: 2px solid var(--accent);
-  filter: grayscale(100%) contrast(1.2);
+  /* filter: grayscale(100%) contrast(1.2); */
   flex-shrink: 0;
 }
 
@@ -777,7 +777,7 @@
 
 @media (prefers-color-scheme: dark) {
   .me-page .hero-avatar {
-    filter: grayscale(100%) contrast(1.1) brightness(0.9);
+    /* filter: grayscale(100%) contrast(1.1) brightness(0.9); */
     border-color: var(--accent);
   }
 }
