@@ -6,7 +6,6 @@
  */
 
 import { walk } from "https://deno.land/std@0.224.0/fs/mod.ts";
-import { join } from "https://deno.land/std@0.224.0/path/mod.ts";
 
 const ASSETS_DIR = "./assets";
 const MAX_WIDTH = 1200; // Max width for images (good for retina displays)
