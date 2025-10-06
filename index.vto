@@ -27,6 +27,13 @@ bodyClass: me-page
           <time class="post-date">{{ post.date |> date("yyyy-MM-dd HH:mm") }}</time>
         {{ /if }}
       </header>
+      {{ if post.tags }}
+        <div class="post-tags">
+          {{ for tag of post.tags }}
+            <span class="tag">{{ tag }}</span>
+          {{ /for }}
+        </div>
+      {{ /if }}
     </article>
   {{ /for }}
 </section>

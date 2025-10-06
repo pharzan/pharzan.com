@@ -4,6 +4,7 @@ title: First post
 description: "Time to start a blog"
 bodyClass: me-page
 date: 2025-09-20 10:00
+tags: [personal, meta, blogging]
 ---
 # A place to begin
 

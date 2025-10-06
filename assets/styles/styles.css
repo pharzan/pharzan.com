@@ -799,3 +799,29 @@
   .me-page tbody { max-height: 55vh; }
 }
 
+/* ===== Tags - Terminal style ===== */
+.me-page .post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 0.5em;
+  padding-left: 1.2em;
+}
+
+.me-page .tag {
+  display: inline-block;
+  font-size: 0.8em;
+  padding: 0.2em 0.6em;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+}
+
+.me-page .tag::before {
+  content: "#";
+  color: var(--accent);
+  margin-right: 0.15em;
+}
+
