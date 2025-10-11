@@ -129,6 +129,10 @@ onboarding
         // Update path in viewer
         const folderName = folder.querySelector('.folder-name').textContent;
         pathElements.forEach(el => el.textContent = folderName);
+
+        if (window.umami && typeof window.umami.track === 'function') {
+          window.umami.track('skills-folder-click', { folder: targetPanel });
+        }
       });
     });
   });
