@@ -825,3 +825,223 @@
   margin-right: 0.15em;
 }
 
+/* ===== DOS-Style Skills Terminal ===== */
+.me-page .skills-dos {
+  margin: 2em 0;
+  background: var(--code-bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  line-height: 1.4;
+  border: 2px solid var(--border);
+  box-shadow: none;
+}
+
+.me-page .dos-header {
+  padding: 1em 1.5em;
+  border-bottom: 1px solid var(--border);
+  font-weight: 700;
+}
+
+.me-page .dos-prompt {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Two-column layout */
+.me-page .dos-columns {
+  display: flex;
+  min-height: 400px;
+}
+
+/* Left menu column */
+.me-page .dos-menu {
+  flex: 0 0 200px;
+  border-right: 1px solid var(--border);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  background: var(--bg);
+}
+
+.me-page .dos-menu-header {
+  color: var(--muted);
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85em;
+  white-space: pre;
+}
+
+.me-page .dos-menu-footer {
+  margin-top: auto;
+  padding-top: 1em;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85em;
+  white-space: pre;
+}
+
+.me-page .dos-folder {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.5em 0.75em;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.me-page .dos-folder:hover {
+  background: var(--code-bg);
+  border-color: var(--border);
+}
+
+.me-page .dos-folder.active {
+  background: var(--code-bg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.me-page .dos-folder:focus-visible {
+  outline: var(--focus);
+  outline-offset: 2px;
+}
+
+.me-page .folder-bracket {
+  color: var(--accent);
+}
+
+.me-page .folder-name {
+  font-weight: 700;
+}
+
+/* Right viewer column */
+.me-page .dos-viewer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.me-page .dos-viewer-header {
+  padding: 1em 1.5em;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.me-page .dos-viewer-footer {
+  padding: 1em 1.5em;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: auto;
+}
+
+.me-page .dos-content-area {
+  flex: 1;
+  padding: 1.5em;
+  overflow-y: auto;
+  position: relative;
+}
+
+.me-page .dos-panel {
+  display: none;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.me-page .dos-panel.active {
+  display: block;
+  animation: dos-fade-in 0.2s ease-in;
+}
+
+@keyframes dos-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.me-page .dos-file-header {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.me-page .current-path {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.me-page .dos-cursor {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--bg);
+  animation: blink-cursor 1s step-end infinite;
+  padding: 0 0.2em;
+  margin-left: 0.2em;
+}
+
+@keyframes blink-cursor {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .me-page .dos-columns {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .me-page .dos-menu {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid #00ff00;
+    flex-direction: row;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.75em;
+  }
+
+  .me-page .dos-menu-header,
+  .me-page .dos-menu-footer {
+    display: none;
+  }
+
+  .me-page .dos-folder {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 0.5em 1em;
+  }
+
+  .me-page .dos-content-area {
+    padding: 1em;
+  }
+}
+
+@media (max-width: 640px) {
+  .me-page .skills-dos {
+    font-size: 0.75em;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .me-page .dos-cursor {
+    animation: none;
+    opacity: 1;
+  }
+
+  .me-page .dos-panel {
+    animation: none;
+  }
+
+  .me-page .dos-folder {
+    transition: none;
+  }
+}
+
