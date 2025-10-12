@@ -13,6 +13,7 @@ const site = lume({
 
 site.use(feed({ output: ["/feed.xml"] }));
 site.copy("assets");
+site.copy("404.html");
 site.use(metas());
 site.use(sitemap());
 site.use(search());

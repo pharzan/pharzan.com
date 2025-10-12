@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>404 - Page Not Found · Farzan Tinati</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Page not found" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="404 - Page Not Found · Farzan Tinati" />
+    <meta property="og:description" content="Page not found" />
+    <link rel="preconnect" href="https://cloud.umami.is" crossorigin />
+    <link rel="stylesheet" href="/assets/styles/styles.css" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="aaa4c2de-92e2-4e06-b111-ad366699c4a9"></script>
+  </head>
+  <body class="me-page">
+    <main>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/me">Me</a>
+      </nav>
+
+      <section style="margin-top: 4em; text-align: center;">
+        <h1 style="font-size: 3em; margin-bottom: 0.5em;">404</h1>
+
+        <pre style="display: inline-block; text-align: left; margin: 2em 0;">
+$ ls requested-page
+ls: requested-page: No such file or directory
+
+$ cat error.log
+[ERROR] HTTP 404: Resource not found
+[INFO]  The page you're looking for doesn't exist
+[HINT]  Check the URL or navigate back home</pre>
+
+        <p style="margin: 2em 0; color: var(--muted);">
+          The page you're looking for has been moved, deleted, or never existed.
+        </p>
+
+        <div style="display: flex; gap: 1em; justify-content: center; flex-wrap: wrap; margin-top: 2em;">
+          <a href="/" style="display: inline-block; padding: 0.75em 1.5em; background: var(--code-bg); border: 1px solid var(--border); text-decoration: none; transition: all 0.15s ease;">← Back to Home</a>
+          <a href="/me" style="display: inline-block; padding: 0.75em 1.5em; background: var(--code-bg); border: 1px solid var(--border); text-decoration: none; transition: all 0.15s ease;">About Me</a>
+        </div>
+
+        <p style="margin-top: 3em; font-size: 0.85em; color: var(--muted);">
+          <span style="color: var(--accent);">$</span> cd ~
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
