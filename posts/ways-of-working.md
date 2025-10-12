@@ -1,6 +1,6 @@
 ---
 layout: layout.vto
-title: Ways of Working | Navigating Different Management Styles Across Cultures
+title: Ways of Working | Different Management Styles Across Cultures
 description: "Navigating how people make decisions at work can be surprisingly different across cultures. From hierarchical systems in Iran and Turkey to collaborative approaches in Norway, this post explores how leadership, communication, and mindset shift — and why finding balance matters"
 bodyClass: me-page
 date: 2025-10-12 07:53
