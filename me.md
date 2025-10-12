@@ -43,23 +43,18 @@ Curious and product-oriented full-stack engineer looking for fast-moving startup
         <div class="dos-panel active" data-panel="product">
 <span class="dos-file-header">PROTOTYPING</span>
 ─────────────────────────
-Fast prototyping and MVP
-developmentf
+Fast prototyping and MVP development
 <span class="dos-file-header">TEAMWORK</span>
 ─────────────────────────
-Cross-disciplinary teamwork
-with engineers, designers,
-and product managers
+Cross-disciplinary teamwork with engineers, designers, and product managers
 <span class="dos-file-header">SUPPORT</span>
 ─────────────────────────
-Pre-sales and post-sales
-technical support and
-onboarding
+Pre-sales and post-sales technical support and onboarding
         </div>
         <div class="dos-panel" data-panel="backend">
 <span class="dos-file-header">PYTHON</span>
 ─────────────────────────
-  • FastAPI
+  • FastAPI 
   • Pydantic
   • SQLAlchemy
   • Alembic
@@ -74,7 +69,7 @@ onboarding
 ─────────────────────────
   • TypeScript
   • React, Next.js
-  • Vue.js
+  • Vue.js 
   • Three.js
   • Mapbox
   • Parametric design
@@ -85,15 +80,13 @@ onboarding
   • Terraform (IaC)
   • Docker
   • GitHub Actions (CI/CD)
-  • GCP, AWS, Firebase
-        </div>
+  • GCP, Firebase, AWS
+      </div>
         <div class="dos-panel" data-panel="interests">
 <span class="dos-file-header">HOBBIES</span>
 ─────────────────────────
-  • IoT prototyping with
-    Arduino/Raspberry Pi
-  • 3D printing and
-    CAD/CAM modeling
+  • IoT prototyping with Arduino/Raspberry Pi
+  • 3D printing and CAD/CAM modeling
   • AI agent automation
         </div>
       </div>
