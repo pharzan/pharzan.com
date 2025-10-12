@@ -7,7 +7,7 @@ date: 2025-10-12 07:53
 tags: [communication, leadership, teams, management, working abroad]
 ---
 
-# Ways of Working: Navigating Different Management Styles Across Cultures
+# Ways of Working: Different Management Styles Across Cultures
 
 One of the most difficult things I've had to figure out in my career has been understanding different ways of working across various environments and cultures.
 
