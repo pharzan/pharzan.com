@@ -1052,36 +1052,6 @@
   margin-left: 0.2em;
 }
 
-/* ===== Intro callout (consistent with terminal theme) ===== */
-.me-page .me-intro {
-  margin: 1.25em 0 2em;
-  padding: 0.9em 1em;
-  background: var(--code-bg);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-}
-
-.me-page .me-intro-text {
-  margin: 0;
-  color: var(--text);
-  font-family: var(--font-mono);
-  line-height: 1.6;
-}
-
-.me-page .me-intro a {
-  text-decoration-style: dotted; /* matches site links */
-}
-
-/* Optional: small label to reinforce the aside role */
-.me-page .me-intro::before {
-  display: inline-block;
-  font-size: 0.8em;
-  color: var(--muted);
-  margin-right: 0.6em;
-  letter-spacing: 0.02em;
-}
-
-
 @keyframes blink-cursor {
   0%, 49% { opacity: 1; }
   50%, 100% { opacity: 0; }
@@ -1140,10 +1110,4 @@
   .me-page .dos-folder {
     transition: none;
   }
-}
-
-
-/* Dark mode stays on brand automatically via vars */
-@media (prefers-color-scheme: dark) {
-  .me-page .me-intro { border-color: var(--border); }
 }
