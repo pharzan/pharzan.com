@@ -2,8 +2,6 @@
 layout: layout.vto
 title: About Farzan Tinati
 description: "Full-stack engineer in Oslo. I design and ship products end-to-end—from concept to cloud."
-canonical: "https://pharzan.com/me"
-
 bodyClass: me-page
 ---
 
