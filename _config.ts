@@ -6,6 +6,7 @@ import search from "lume/plugins/search.ts";
 import date from "lume/plugins/date.ts";
 import codeHighlight from "lume/plugins/code_highlight.ts";
 import inline from "lume/plugins/inline.ts";
+import llms from "https://deno.land/x/lume_plugin_llms@v0.1.2/mod.ts";
 
 const site = lume({
     location: new URL("https://pharzan.com"),
@@ -20,4 +21,6 @@ site.use(search());
 site.use(date());
 site.use(codeHighlight());
 site.use(inline());
+site.use(llms());
+
 export default site;
