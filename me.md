@@ -7,11 +7,20 @@ canonical: "https://pharzan.com/me"
 bodyClass: me-page
 ---
 
-# Farzan Tinati  
-**Full-Stack Software Engineer** • Oslo, Norway • [LinkedIn](https://linkedin.com/in/pharzan) | [Github](https://github.com/pharzan) | [PDF](../assets/Farzan-Tinati.pdf)
+<section class="hero">
+  <img class="hero-avatar" src="../assets/avatar-pixel.png" alt="Farzan Tinati" width="80" height="80" />
+  <div class="hero-content">
+    <h1 class="hero-title">Farzan Tinati</h1>
+    <p class="hero-sub">
+      Full-Stack Software Engineer • Oslo, Norway
+    </p>
+  </div>
+</section>
+
+[LinkedIn](https://linkedin.com/in/pharzan) | [Github](https://github.com/pharzan) | [PDF](../assets/Farzan-Tinati.pdf)
 
 ---
-
+## Summary
 Curious and product-oriented full-stack engineer looking for fast-moving startup environments. Designs and ships products end-to-end, from concept to cloud deployment with a strong record of fast prototyping, while writing clean, scalable code and collaborating across disciplines. Passionate about turning ideas into high-impact products.
 
 ---
