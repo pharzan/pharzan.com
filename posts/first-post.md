@@ -1,7 +1,7 @@
 ---
 layout: layout.vto
 title: First post
-description: "Time to start a blog"
+description: "Time to start a blog! This is the first post in my blog describing my motivation behind creating a blog and how I created it"
 bodyClass: me-page
 date: 2025-09-20 10:00
 tags: [personal, meta, blogging]

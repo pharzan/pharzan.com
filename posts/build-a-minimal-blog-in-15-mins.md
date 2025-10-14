@@ -1,7 +1,7 @@
 ---
 layout: layout.vto
 title: Setup a minimal blog in less than 15 minutes
-description: "Create a minimal blog in less than 15 minutes"
+description: "How I created a simple, minimal blog in less than 15 minutes and hosted in on firebase with automatic deployments enabled"
 bodyClass: me-page
 date: 2025-09-20 14:30
 tags: [deno, lume, blog, firebase]
