@@ -21,7 +21,40 @@
         <a href="/">Home</a>
         <a href="/me">Me</a>
       </nav>
+
       {{ content }}
+
+      {{ if url.startsWith("/posts/") && url !== "/posts/" }}
+        <hr />
+        <section class="related-posts">
+          <aside class="me-intro" aria-label="About Farzan">
+            <p class="me-intro-text">
+              Hey, I’m <a href='/me'>Farzan</a> — I build full-stack products and share hands-on notes on 
+                    <span>shipping</span>, 
+                    <span>design-systems</span>, and 
+                    <span>creative-growth</span>.
+            </p>
+          </aside>
+
+          <h2>Below are some of my recent notes:</h2>
+          <nav class="related-posts-list" aria-label="Related posts">
+            {{ set count = 0 }}
+            {{ for post of search.pages("url^=/posts/", "date=desc") }}
+              {{ if post.url !== url && count < 3 }}
+                <article class="related-post-item">
+                  <h3 class="related-post-title">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                  </h3>
+                  {{ if post.date }}
+                    <time class="related-post-date">{{ post.date |> date("yyyy-MM-dd") }}</time>
+                  {{ /if }}
+                </article>
+                {{ set count = count + 1 }}
+              {{ /if }}
+            {{ /for }}
+          </nav>
+        </section>
+      {{ /if }}
     </main>
   </body>
 </html>

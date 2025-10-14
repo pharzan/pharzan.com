@@ -787,6 +787,73 @@
   .me-page { font-size: 112.5%; }  /* ~18px base; headings already clamp */
 }
 
+/* ===== Related Posts at Bottom - Terminal style ===== */
+.me-page .related-posts {
+  margin-top: 3em;
+  text-align: left;
+}
+
+.me-page .related-posts h2 {
+  font-size: 1.2em;
+  margin-bottom: 1.5em;
+  text-align: left;
+}
+
+.me-page .related-posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: flex-start;
+}
+
+.me-page .related-post-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1em;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+}
+
+.me-page .related-post-title {
+  margin: 0;
+  font-size: 0.95em;
+  flex: 1;
+  min-width: 200px;
+  text-align: left;
+}
+
+.me-page .related-post-title::before {
+  content: "> ";
+  color: var(--accent);
+}
+
+.me-page .related-post-title a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.me-page .related-post-title a:hover {
+  text-decoration: underline;
+}
+
+.me-page .related-post-date {
+  font-size: 0.85em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.me-page .related-post-date::before {
+  content: "[";
+  color: var(--accent);
+}
+
+.me-page .related-post-date::after {
+  content: "]";
+  color: var(--accent);
+}
+
 /* Improve focus visibility on dark backgrounds (mobile often in dark mode) */
 @media (prefers-color-scheme: dark) {
   .me-page :focus-visible {
