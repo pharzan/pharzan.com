@@ -1,6 +1,6 @@
 ---
 layout: layout.vto
-title: Communication is key
+title: The Power of Communication | Lessons from Building Teams
 description: "How transparent communication transforms teams. Learn about the introvert's dilemma, choosing the right channels, and why startup communication differs from corporate culture."
 bodyClass: me-page
 date: 2025-10-06 15:00
