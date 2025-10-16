@@ -8,9 +8,7 @@ tags: [teams, management]
 ---
 # Sharing Domain Knowledge and Building Better Teams
 
-## Building Collaboration Through Pair Programming
-
-When I joined a startup with multiple disciplines, one of the first questions we were asked was:  
+When I joined a multidisciplinary startup team, one of the first questions we were asked was:  
 **“How will you handle cross-team collaboration, especially with people from different backgrounds and competences?”**
 
 At the time, I didn’t have a good answer. But as I became more involved, I started to understand how crucial this question really is.
@@ -66,7 +64,4 @@ Another important benefit is productivity, You get more done in the long run. Fe
 
 ## Final Thoughts
 
-Pair programming isn’t something you need to do all the time, but when it makes sense, it’s an incredibly powerful way to build both a product and a team.  
-
-Even if it feels slower at first, remember:  
-That’s how you build a team that **learns and grows together**.  
+Pair programming isn’t something you need to do all the time, but when it makes sense, it’s an incredibly powerful way to build both a product and a team, even if it feels slow at first.
