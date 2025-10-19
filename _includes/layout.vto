@@ -41,7 +41,7 @@
           <nav class="related-posts-list" aria-label="Related posts">
             {{ set count = 0 }}
             {{ for post of search.pages("url^=/posts/", "date=desc") }}
-              {{ if post.url !== url && count < 3 }}
+              {{ if post.url !== url && count < 5 }}
                 <article class="related-post-item">
                   <h3 class="related-post-title">
                     <a href="{{ post.url }}">{{ post.title }}</a>
