@@ -4,6 +4,7 @@ title: Visual Testing in Software | The Problem I Couldn't See
 description: "Discover why visual testing matters for complex algorithms and geometric code. Learn how visualizing test outputs catches bugs unit tests miss, improves code understanding, and bridges communication gaps with domain experts."
 bodyClass: me-page
 date: 2025-10-22 17:20
+tags: [software, development, testing, learning, tools]
 ---
 
 # Visual Testing in Software | The Problem I Couldn't See
