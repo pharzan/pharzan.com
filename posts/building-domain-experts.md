@@ -46,7 +46,7 @@ The tricky part is that you need domain knowledge, but you can't let domain expe
 They might say: "We need to manually adjust these 20 values every time."
 You should think: "Why are these values changing? Can we derive them? Can we automate this? What's the underlying rule?"
 Sometimes the answer is: "No, they genuinely need manual control." But often, there's a better way that neither of you would have found alone.
-In my experience, workshops to find solutions together and pair programming have been effective ways to figure out how to build small prototypes and expand on those gradually.
+In my experience, workshops to find solutions together and pair programming have been effective ways to figure out how to build small prototypes and expand on those gradually. I've written more on [Sharing Domain Knowledge and Building Better Teams](https://pharzan.com/posts/pair-programming/)
 
 ## You Don't Have to Know Everything
 
