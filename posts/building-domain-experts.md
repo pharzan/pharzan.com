@@ -1,13 +1,13 @@
 ---
 layout: layout.vto
-title: Building for Domain Experts | What Software Engineers Should Know
+title: A Software Engineer’s Guide to Building Specialized Domain Products
 description: "A look at how software engineers can learn just enough of the domain to collaborate with experts and make better product decisions."
 bodyClass: me-page
 date: 2025-11-16 16:53
 tags: [domain-expertise, collaboration, product, engineering, teams]
 ---
 
-# Building for Domain Experts | What Software Engineers Should Know
+# A Software Engineer’s Guide to Building Specialized Domain Products
 
 When I joined a startup building software for a specialized industry, I thought my job was to write good code. But I learned that wasn't enough. Good code is part of the job, but that's not the real challenge—it was understanding what the code needed to do and understanding the problem from an engineer's perspective.
 
