@@ -1111,3 +1111,37 @@
     transition: none;
   }
 }
+
+/* ===== Public analytics dashboard ===== */
+.analytics-page main {
+  max-width: 90rem;
+}
+
+.analytics-page .analytics-header {
+  margin-bottom: 1.5rem;
+}
+
+.analytics-page .analytics-embed {
+  width: 100%;
+  min-height: 52rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+}
+
+.analytics-page .analytics-fallback {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+@media (max-width: 640px) {
+  .analytics-page main {
+    padding-inline: 0.75rem;
+  }
+
+  .analytics-page .analytics-embed {
+    min-height: 44rem;
+  }
+}
