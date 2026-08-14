@@ -14,6 +14,8 @@ jobs:
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v2.5.1
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
       - name: Optimize images and build Lume
         run: deno task prepare
       - uses: FirebaseExtended/action-hosting-deploy@v0
