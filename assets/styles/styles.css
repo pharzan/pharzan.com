@@ -1137,20 +1137,129 @@
 
 /* ===== Public analytics dashboard ===== */
 .analytics-page main {
-  max-width: 90rem;
+  max-width: 44rem;
 }
 
 .analytics-page .analytics-header {
   margin-bottom: 1.5rem;
 }
 
-.analytics-page .analytics-embed {
-  width: 100%;
-  min-height: 52rem;
+.analytics-page .analytics-card {
+  max-width: 36rem;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--code-bg);
+  text-align: center;
+}
+
+.analytics-page .analytics-totals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.analytics-page .analytics-stat {
+  min-width: 0;
+  padding-inline: 1rem;
+}
+
+.analytics-page .analytics-stat + .analytics-stat {
+  border-left: 1px solid var(--border);
+}
+
+.analytics-page .analytics-label,
+.analytics-page .analytics-period,
+.analytics-page .analytics-status,
+.analytics-page .analytics-value {
+  margin: 0;
+}
+
+.analytics-page .analytics-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.analytics-page .analytics-value {
+  margin-block: 0.35rem;
+  font-size: clamp(2.75rem, 8vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.analytics-page .analytics-value-error {
+  font-size: clamp(1.75rem, 8vw, 3rem);
+}
+
+.analytics-page .analytics-period {
+  font-size: 1.1rem;
+}
+
+.analytics-page .analytics-status {
+  min-height: 1.4em;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.analytics-page .analytics-ranking {
+  max-width: 36rem;
+  margin-top: 2.5rem;
+}
+
+.analytics-page .analytics-ranking-header {
+  margin-bottom: 1rem;
+}
+
+.analytics-page .analytics-ranking-header h2,
+.analytics-page .analytics-ranking-header p {
+  margin-bottom: 0.25rem;
+}
+
+.analytics-page .analytics-ranking-header p,
+.analytics-page .analytics-ranking-loading {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.analytics-page .analytics-ranking-list {
   margin: 0;
   padding: 0;
-  border: 1px solid var(--border);
-  background: var(--code-bg);
+  border-top: 1px solid var(--border);
+  list-style: none;
+}
+
+.analytics-page .analytics-ranking-item {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.analytics-page .analytics-rank,
+.analytics-page .analytics-ranking-count {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.analytics-page .analytics-ranking-item a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.analytics-page .analytics-ranking-count {
+  text-align: right;
+}
+
+.analytics-page .analytics-ranking-loading {
+  padding-block: 1rem;
 }
 
 .analytics-page .analytics-fallback {
@@ -1164,7 +1273,16 @@
     padding-inline: 0.75rem;
   }
 
-  .analytics-page .analytics-embed {
-    min-height: 44rem;
+  .analytics-page .analytics-card {
+    max-width: none;
+  }
+
+  .analytics-page .analytics-stat {
+    padding-inline: 0.5rem;
+  }
+
+  .analytics-page .analytics-ranking-item {
+    grid-template-columns: 2rem minmax(0, 1fr) auto;
+    gap: 0.5rem;
   }
 }
