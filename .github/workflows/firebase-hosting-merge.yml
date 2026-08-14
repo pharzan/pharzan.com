@@ -2,7 +2,7 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
-'on':
+"on":
   push:
     branches:
       - main
@@ -14,11 +14,11 @@ jobs:
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v2.5.1
-      - name: Build Lume
-        run: deno task build
+      - name: Optimize images and build Lume
+        run: deno task prepare
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PHARZAN }}'
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_PHARZAN }}"
           channelId: live
           projectId: pharzan

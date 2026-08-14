@@ -8,7 +8,7 @@ The site is built with [Lume](https://lume.land/) and [Deno](https://deno.com/) 
 
 - [Deno](https://docs.deno.com/runtime/getting_started/installation/)
 - [Firebase CLI](https://firebase.google.com/docs/cli) for deployment
-- Optional: ImageMagick on Linux, or `sips` on macOS, for image optimization
+- ImageMagick on Linux, or `sips` on macOS, for image optimization and deployment
 
 ## Getting started
 
@@ -28,16 +28,30 @@ Lume will print the local URL in the terminal and rebuild the site when source f
 | --- | --- |
 | `deno task serve` | Start the local development server |
 | `deno task build` | Generate the production site in `_site/` |
+| `deno task prepare` | Optimize images and generate the production site |
 | `deno task cms` | Start the Lume CMS |
 | `deno task new-post <filename> <title> <description>` | Create a post in `posts/` |
 | `deno task optimize-images` | Resize and optimize images in `assets/` |
 | `deno task setup-hooks` | Configure the repository's Git hooks |
-| `deno task deploy` | Build and deploy the site to Firebase Hosting |
+| `deno task deploy` | Optimize images, build, and deploy to Firebase Hosting |
+
+The same commands are available through `make`:
+
+```sh
+make help
+make serve
+make build
+make prepare
+make deploy
+```
 
 For example, to create a post:
 
 ```sh
 deno task new-post hello-world "Hello, world" "A short description of the post"
+
+# Or with Make
+make new-post SLUG=hello-world TITLE="Hello, world" DESCRIPTION="A short description of the post"
 ```
 
 ## Project structure
@@ -80,4 +94,4 @@ firebase login
 deno task deploy
 ```
 
-The deploy task builds `_site/` and publishes the configured `pharzan` Firebase Hosting target.
+The deploy task optimizes images, builds `_site/`, and publishes the default Firebase Hosting site. The GitHub Actions deployment uses the same preparation task.
