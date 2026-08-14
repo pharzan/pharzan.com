@@ -56,6 +56,31 @@
             {{ /for }}
           </nav>
         </section>
+
+        <section class="comments" aria-labelledby="comments-title">
+          <h2 id="comments-title">Comments</h2>
+          <p class="comments-note">
+            Comments are powered by <a href="https://giscus.app" target="_blank" rel="noopener noreferrer">Giscus</a>
+            and require a GitHub account.
+          </p>
+          <script
+            src="https://giscus.app/client.js"
+            data-repo="pharzan/pharzan.com"
+            data-repo-id="R_kgDOPzsHGA"
+            data-category="Blog comments"
+            data-category-id="DIC_kwDOPzsHGM4DDWDi"
+            data-mapping="pathname"
+            data-strict="1"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="https://pharzan.com/assets/styles/giscus.css"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async
+          ></script>
+        </section>
       {{ /if }}
     </main>
   </body>
