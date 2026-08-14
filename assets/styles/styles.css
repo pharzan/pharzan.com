@@ -780,10 +780,35 @@
   margin-top: 2.5em;
 }
 
-.me-page .posts > h2 {
-  margin-top: 0;
+.me-page .posts-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
   margin-bottom: 1.5em;
+}
+
+.me-page .posts-title-bar h2 {
+  margin: 0;
   font-size: 1.3em;
+}
+
+.me-page .rss-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35em;
+  color: var(--accent);
+  line-height: 1;
+  text-decoration: none;
+}
+
+.me-page .rss-link:visited {
+  color: var(--accent);
+}
+
+.me-page .rss-link svg {
+  fill: currentColor;
 }
 
 @media (max-width: 640px) {
