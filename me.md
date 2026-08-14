@@ -1,7 +1,7 @@
 ---
 layout: layout.vto
 title: About Farzan Tinati
-description: "Full-stack engineer in Oslo. I design and ship products end-to-end—from concept to cloud."
+description: "Full-stack software engineer at Autodesk in Oslo. I design and ship products end-to-end—from concept to cloud."
 bodyClass: me-page
 ---
 
@@ -10,7 +10,7 @@ bodyClass: me-page
   <div class="hero-content">
     <h1 class="hero-title">Farzan Tinati</h1>
     <p class="hero-sub">
-      Full-Stack Software Engineer • Oslo, Norway
+      Full-stack Software Engineer • Oslo, Norway
     </p>
   </div>
 </section>
@@ -19,7 +19,7 @@ bodyClass: me-page
 
 ---
 ## Summary
-Curious and product-oriented full-stack engineer looking for fast-moving startup environments. Designs and ships products end-to-end, from concept to cloud deployment with a strong record of fast prototyping, while writing clean, scalable code and collaborating across disciplines. Passionate about turning ideas into high-impact products.
+I’m a software engineer with an engineering background and full-stack experience building products. I like taking ideas from early experiments to reliable software, working across frontend, backend, and infrastructure along the way. I enjoy turning complex domain problems into practical tools with cross-disciplinary teams.
 
 ---
 
@@ -141,6 +141,9 @@ Pre-sales and post-sales technical support and onboarding
 ---
 
 ## Experience
+### Senior Software Engineer — <a target="_blank" rel="noopener noreferrer" href="https://www.autodesk.com/"><span>Autodesk</span></a>
+*Oslo, Norway • Present*
+
 ### Full-Stack Engineer — <a target="_blank" rel="noopener noreferrer" href="https://shapemaker.io"><span>Shapemaker</span></a>
 *Oslo, Norway • Jul 2022 – Present*  
 Cloud-based structural engineering design and analysis platform for telecommunication infrastructure  
