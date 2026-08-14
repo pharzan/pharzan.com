@@ -1,5 +1,5 @@
 new-post:
-	deno run --allow-read --allow-write scripts/new-post.ts
+	deno run --allow-write=posts scripts/new-post.ts
 
 optimize-images:
 	deno run --allow-read --allow-write --allow-run scripts/optimize-images.ts

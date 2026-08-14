@@ -28,14 +28,22 @@ async function checkCommand(cmd: string): Promise<boolean> {
   }
 }
 
-async function getImageDimensions(filePath: string): Promise<{ width: number; height: number }> {
+async function getImageDimensions(
+  filePath: string,
+): Promise<{ width: number; height: number }> {
   const process = new Deno.Command("sips", {
     args: ["-g", "pixelWidth", "-g", "pixelHeight", filePath],
     stdout: "piped",
     stderr: "piped",
   });
 
-  const { stdout } = await process.output();
+  const { success, stdout, stderr } = await process.output();
+
+  if (!success) {
+    const errorText = new TextDecoder().decode(stderr).trim();
+    throw new Error(`Failed to read dimensions for ${filePath}: ${errorText}`);
+  }
+
   const output = new TextDecoder().decode(stdout);
 
   const widthMatch = output.match(/pixelWidth: (\d+)/);
@@ -52,11 +60,15 @@ async function optimizeWithSips(filePath: string): Promise<void> {
 
   // Skip if image is already smaller than MAX_WIDTH
   if (dimensions.width <= MAX_WIDTH && dimensions.height <= MAX_WIDTH) {
-    console.log(`  Skipping ${filePath} (already optimized: ${dimensions.width}x${dimensions.height})`);
+    console.log(
+      `  Skipping ${filePath} (already optimized: ${dimensions.width}x${dimensions.height})`,
+    );
     return;
   }
 
-  console.log(`  Resizing ${filePath} from ${dimensions.width}x${dimensions.height}...`);
+  console.log(
+    `  Resizing ${filePath} from ${dimensions.width}x${dimensions.height}...`,
+  );
 
   const process = new Deno.Command("sips", {
     args: ["-Z", MAX_WIDTH.toString(), filePath],
@@ -67,8 +79,8 @@ async function optimizeWithSips(filePath: string): Promise<void> {
   const { success, stderr } = await process.output();
 
   if (!success) {
-    const errorText = new TextDecoder().decode(stderr);
-    console.error(`Failed to optimize ${filePath}: ${errorText}`);
+    const errorText = new TextDecoder().decode(stderr).trim();
+    throw new Error(`Failed to optimize ${filePath}: ${errorText}`);
   }
 }
 
@@ -78,9 +90,11 @@ async function optimizeWithImageMagick(filePath: string): Promise<void> {
   const process = new Deno.Command("convert", {
     args: [
       filePath,
-      "-resize", `${MAX_WIDTH}>`, // Only resize if larger than MAX_WIDTH
-      "-quality", QUALITY.toString(),
-      filePath
+      "-resize",
+      `${MAX_WIDTH}>`, // Only resize if larger than MAX_WIDTH
+      "-quality",
+      QUALITY.toString(),
+      filePath,
     ],
     stdout: "piped",
     stderr: "piped",
@@ -89,8 +103,8 @@ async function optimizeWithImageMagick(filePath: string): Promise<void> {
   const { success, stderr } = await process.output();
 
   if (!success) {
-    const errorText = new TextDecoder().decode(stderr);
-    console.error(`Failed to optimize ${filePath}: ${errorText}`);
+    const errorText = new TextDecoder().decode(stderr).trim();
+    throw new Error(`Failed to optimize ${filePath}: ${errorText}`);
   }
 }
 
@@ -116,7 +130,9 @@ async function main() {
     console.error("❌ No image optimization tool found!");
     console.error("Please install either:");
     console.error("  - sips (built-in on macOS)");
-    console.error("  - ImageMagick: brew install imagemagick (macOS) or apt-get install imagemagick (Linux)");
+    console.error(
+      "  - ImageMagick: brew install imagemagick (macOS) or apt-get install imagemagick (Linux)",
+    );
     Deno.exit(1);
   }
 
@@ -130,7 +146,11 @@ async function main() {
   let skippedCount = 0;
 
   // Find and optimize all images
-  for await (const entry of walk(ASSETS_DIR, { exts: IMAGE_EXTENSIONS.map(e => e.slice(1)) })) {
+  for await (
+    const entry of walk(ASSETS_DIR, {
+      exts: IMAGE_EXTENSIONS.map((e) => e.slice(1)),
+    })
+  ) {
     if (entry.isFile) {
       const originalSize = await getFileSize(entry.path);
       await optimizeFn(entry.path);
@@ -141,7 +161,11 @@ async function main() {
       } else {
         const savings = originalSize - optimizedSize;
         const savingsPercent = ((savings / originalSize) * 100).toFixed(1);
-        console.log(`  ${formatBytes(originalSize)} → ${formatBytes(optimizedSize)} (${savingsPercent}% saved)`);
+        console.log(
+          `  ${formatBytes(originalSize)} → ${
+            formatBytes(optimizedSize)
+          } (${savingsPercent}% saved)`,
+        );
 
         totalOriginalSize += originalSize;
         totalOptimizedSize += optimizedSize;
@@ -162,11 +186,18 @@ async function main() {
   }
 
   const totalSavings = totalOriginalSize - totalOptimizedSize;
-  const totalSavingsPercent = ((totalSavings / totalOriginalSize) * 100).toFixed(1);
+  const totalSavingsPercent = ((totalSavings / totalOriginalSize) * 100)
+    .toFixed(1);
 
   console.log("\n✅ Optimization complete!");
-  console.log(`📊 Total: ${formatBytes(totalOriginalSize)} → ${formatBytes(totalOptimizedSize)}`);
-  console.log(`💾 Saved: ${formatBytes(totalSavings)} (${totalSavingsPercent}%)`);
+  console.log(
+    `📊 Total: ${formatBytes(totalOriginalSize)} → ${
+      formatBytes(totalOptimizedSize)
+    }`,
+  );
+  console.log(
+    `💾 Saved: ${formatBytes(totalSavings)} (${totalSavingsPercent}%)`,
+  );
   console.log(`🖼️  Files optimized: ${fileCount}`);
   if (skippedCount > 0) {
     console.log(`⏭️  Files skipped: ${skippedCount}`);
@@ -174,5 +205,5 @@ async function main() {
 }
 
 if (import.meta.main) {
-  main();
+  await main();
 }
