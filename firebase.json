@@ -6,13 +6,6 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "redirects": [
-      {
-        "source": "https://www.pharzan.com/**",
-        "destination": "https://pharzan.com",
-        "type": 301
-      }
-    ],
     "headers": [
       {
         "source": "**/*.html",

@@ -12,7 +12,17 @@ const site = lume({
     location: new URL("https://pharzan.com"),
 });
 
-site.use(feed({ output: ["/feed.xml"] }));
+site.ignore("README.md");
+
+site.use(feed({
+    output: "/feed.xml",
+    query: "url^=/posts/",
+    sort: "date=desc",
+    info: {
+        title: "Farzan Tinati",
+        description: "Notes on product development, technology, and growth.",
+    },
+}));
 site.copy("assets");
 site.copy("404.html");
 site.use(metas());
