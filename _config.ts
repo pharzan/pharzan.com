@@ -30,6 +30,21 @@ site.filter("readingTime", (content: string) => {
   return Math.max(1, Math.ceil(words / 200));
 });
 
+const postAudio = new Map<string, string>();
+
+try {
+  for (const entry of Deno.readDirSync("./assets/audio")) {
+    if (!entry.isFile || !entry.name.endsWith(".mp3")) continue;
+
+    const slug = entry.name.slice(0, -".mp3".length);
+    postAudio.set(`/posts/${slug}/`, `/assets/audio/${entry.name}`);
+  }
+} catch (error) {
+  if (!(error instanceof Deno.errors.NotFound)) throw error;
+}
+
+site.filter("postAudio", (url: string) => postAudio.get(url) ?? "");
+
 site.use(feed({
   output: "/feed.xml",
   query: "url^=/posts/",

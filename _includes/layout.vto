@@ -26,6 +26,7 @@
       </nav>
 
       {{ if url.startsWith("/posts/") && url !== "/posts/" }}
+        {{ set audioUrl = url |> postAudio }}
         <aside class="post-meta" aria-label="Post details">
           <span>By <a rel="author" href="/me/">Farzan Tinati</a></span>
           {{ if date }}
@@ -43,6 +44,46 @@
             </span>
           {{ /if }}
         </aside>
+
+        {{ if audioUrl }}
+          <section class="audio-player" data-audio-player aria-label="Audio version of this article">
+            <audio controls preload="metadata" src="{{ audioUrl }}" data-audio>
+              Your browser does not support embedded audio.
+            </audio>
+            <div class="audio-player-controls" data-audio-controls hidden>
+              <button type="button" class="audio-player-toggle" data-audio-toggle aria-label="Play audio version of this article">
+                <span aria-hidden="true" data-audio-icon>▶</span>
+                <span data-audio-label>Listen</span>
+              </button>
+              <span class="audio-player-time">
+                <span data-audio-current>0:00</span>
+                <span aria-hidden="true"> / </span>
+                <span data-audio-duration>--:--</span>
+              </span>
+              <label class="audio-player-speed-label">
+                <span class="visually-hidden">Playback speed</span>
+                <select class="audio-player-speed" data-audio-speed aria-label="Playback speed">
+                  <option value="0.75">0.75×</option>
+                  <option value="1" selected>1×</option>
+                  <option value="1.25">1.25×</option>
+                  <option value="1.5">1.5×</option>
+                  <option value="2">2×</option>
+                </select>
+              </label>
+              <input
+                class="audio-player-progress"
+                data-audio-progress
+                type="range"
+                min="0"
+                max="100"
+                step="0.1"
+                value="0"
+                aria-label="Audio progress"
+              />
+            </div>
+          </section>
+          <script defer src="/assets/scripts/audio-player.js"></script>
+        {{ /if }}
       {{ /if }}
 
       {{ content }}
