@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang || 'en' }}" dir="{{ lang |> textDirection }}">
   <head>
     <meta charset="UTF-8" />
     <title>{{ title }}{{ if !title.includes('Farzan Tinati') }} | Farzan Tinati{{ /if }}</title>
@@ -7,8 +7,17 @@
     <meta name="description" content="{{ description }}" />
     <link rel="icon" href="/assets/favicon.ico" />
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
-    <link rel="alternate" type="application/rss+xml" title="Farzan Tinati RSS feed" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml"
+      title="Farzan Tinati RSS feed" href="/feed.xml" />
     <link rel="canonical" href="https://pharzan.com{{ url }}" />
+    {{ if url.startsWith("/posts/") && url !== "/posts/" }}
+      {{ set originalPostUrl = translationOf || url }}
+      {{ set alternateLanguages = originalPostUrl |> postTranslations }}
+      {{ for language of alternateLanguages }}
+        <link rel="alternate" hreflang="{{ language.code }}"
+          href="https://pharzan.com{{ language.url }}" />
+      {{ /for }}
+    {{ /if }}
     <meta property="og:title"
       content="{{ title }}{{ if !title.includes('Farzan Tinati') }} | Farzan Tinati{{ /if }}" />
     <meta property="og:description" content="{{ description }}" />
@@ -27,6 +36,7 @@
 
       {{ if url.startsWith("/posts/") && url !== "/posts/" }}
         {{ set audioUrl = url |> postAudio }}
+        {{ set languages = originalPostUrl |> postTranslations }}
         <aside class="post-meta" aria-label="Post details">
           <span>By <a rel="author" href="/me/">Farzan Tinati</a></span>
           {{ if date }}
@@ -44,6 +54,22 @@
             </span>
           {{ /if }}
         </aside>
+
+        {{ if languages.length > 1 }}
+          <nav class="language-switcher" aria-label="Article language">
+            <span class="language-switcher-icon" aria-hidden="true">🌐</span>
+            {{ for language of languages }}
+              <a
+                href="{{ language.url }}"
+                lang="{{ language.code }}"
+                hreflang="{{ language.code }}"
+                title="Read in {{ language.label }}"
+                aria-label="Read in {{ language.label }}"
+                {{ if language.code === (lang || 'en') }}aria-current="page"{{ /if }}
+              >{{ language.code.toUpperCase() }}</a>
+            {{ /for }}
+          </nav>
+        {{ /if }}
 
         {{ if audioUrl }}
           <section class="audio-player" data-audio-player aria-label="Audio version of this article">
@@ -103,8 +129,8 @@
           <h2>Below are some of my recent notes:</h2>
           <nav class="related-posts-list" aria-label="Related posts">
             {{ set count = 0 }}
-            {{ for post of search.pages("url^=/posts/", "date=desc") }}
-              {{ if post.url !== url && count < 5 }}
+            {{ for post of search.pages("url^=/posts/ translationOf=undefined", "date=desc") }}
+              {{ if post.url !== url && post.url !== translationOf && count < 5 }}
                 <article class="related-post-item">
                   <h3 class="related-post-title">
                     <a href="{{ post.url }}">{{ post.title }}</a>

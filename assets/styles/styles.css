@@ -136,13 +136,13 @@
 .me-page ol,
 .me-page ul {
   margin: 1em 0;
-  padding-left: 2em;
+  padding-inline-start: 2em;
   line-height: 1.7;
 }
 
 .me-page ul > li {
   position: relative;
-  padding-left: 0.5em;
+  padding-inline-start: 0.5em;
 }
 
 .me-page ul > li::marker {
@@ -160,7 +160,7 @@
 .me-page ul li ol,
 .me-page ul li ul {
   margin: 0.5em 0;
-  padding-left: 2em;
+  padding-inline-start: 2em;
 }
 
 .me-page ol li p,
@@ -224,6 +224,15 @@
   font-size: 0.9em;
   line-height: 1.5;
   margin: 1.5em 0;
+  direction: ltr;
+  text-align: left;
+}
+
+.me-page code,
+.me-page kbd,
+.me-page samp {
+  direction: ltr;
+  unicode-bidi: isolate;
 }
 
 .me-page pre code {
@@ -394,9 +403,9 @@
 }
 
 .me-page blockquote {
-  padding-left: 1.5em;
+  padding-inline-start: 1.5em;
   font-style: normal;
-  border-left: 3px solid var(--accent);
+  border-inline-start: 3px solid var(--accent);
   margin: 1.5em 0;
   color: var(--muted);
   background: none;
@@ -414,7 +423,7 @@
   border-collapse: collapse;
   caption-side: bottom;
   margin: 1.5em 0;
-  text-align: left;
+  text-align: start;
   font-variant-numeric: tabular-nums;
   font-size: 0.95em;
   border: 1px solid var(--border);
@@ -437,7 +446,7 @@
   padding: 0.5em;
   border-bottom: 2px solid var(--accent);
   font-weight: 700;
-  text-align: left;
+  text-align: start;
   background: var(--code-bg);
 }
 
@@ -491,7 +500,7 @@
   margin-top: 0.5em;
   color: var(--muted);
   line-height: 1.6;
-  padding-left: 1.2em;
+  padding-inline-start: 1.2em;
 }
 
 /* ===== Nav (classless) ===== */
@@ -516,7 +525,7 @@
   content: "█";
   color: var(--accent);
   animation: blink 1s infinite;
-  margin-left: 0.25em;
+  margin-inline-start: 0.25em;
   font-size: 0.9em;
 }
 
@@ -581,7 +590,7 @@
 
 .me-page .post-meta > span + span::before {
   content: "·";
-  margin-right: 0.75em;
+  margin-inline-end: 0.75em;
   color: var(--accent);
 }
 
@@ -593,6 +602,40 @@
 
 .me-page .post-meta .tag {
   font-size: 0.9em;
+}
+
+/* ===== Article translations ===== */
+.me-page .language-switcher {
+  gap: 0.4em;
+  margin: -0.65em 0 1.5em;
+  font-size: 0.8em;
+}
+
+.me-page .language-switcher-icon {
+  color: var(--accent);
+  font-size: 1.25em;
+  line-height: 1;
+}
+
+.me-page .language-switcher a {
+  min-width: 2.2em;
+  padding: 0.2em 0.45em;
+  border: 1px solid var(--border);
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.me-page .language-switcher a[aria-current="page"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+}
+
+@media print {
+  .me-page .language-switcher {
+    display: none;
+  }
 }
 
 /* ===== Article audio player ===== */
@@ -739,7 +782,7 @@
   content: "$ ";
   color: var(--accent);
   font-weight: 700;
-  margin-right: 0.5em;
+  margin-inline-end: 0.5em;
 }
 
 .me-page .site-nav a {
@@ -969,20 +1012,20 @@
 /* ===== Related Posts at Bottom - Terminal style ===== */
 .me-page .related-posts {
   margin-top: 3em;
-  text-align: left;
+  text-align: start;
 }
 
 .me-page .related-posts h2 {
   font-size: 1.2em;
   margin-bottom: 1.5em;
-  text-align: left;
+  text-align: start;
 }
 
 .me-page .related-posts-list {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  align-items: flex-start;
+  align-items: start;
 }
 
 .me-page .related-post-item {
@@ -1000,7 +1043,7 @@
   font-size: 0.95em;
   flex: 1;
   min-width: 200px;
-  text-align: left;
+  text-align: start;
 }
 
 .me-page .related-post-title::before {
@@ -1051,7 +1094,7 @@
   flex-wrap: wrap;
   gap: 0.5em;
   margin-top: 0.5em;
-  padding-left: 1.2em;
+  padding-inline-start: 1.2em;
 }
 
 .me-page .tag {
@@ -1068,7 +1111,7 @@
 .me-page .tag::before {
   content: "#";
   color: var(--accent);
-  margin-right: 0.15em;
+  margin-inline-end: 0.15em;
 }
 
 /* ===== DOS-Style Skills Terminal ===== */

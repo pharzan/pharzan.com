@@ -7,7 +7,11 @@
   },
   "scripts": {
     "generate-audio": "node --import tsx scripts/generate-audio.ts",
+    "translate-post": "node --import tsx scripts/translate-post.ts",
     "test:audio": "node --import tsx --test scripts/generate-audio.test.ts",
+    "test:translation": "node --import tsx --test scripts/translate-post.test.ts",
+    "test": "node --import tsx --test scripts/*.test.ts",
+    "typecheck": "tsc --noEmit",
     "typecheck:audio": "tsc --noEmit"
   },
   "packageManager": "pnpm@11.5.0",

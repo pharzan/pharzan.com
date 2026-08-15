@@ -19,6 +19,82 @@ site.ignore("pnpm-workspace.yaml");
 site.ignore("tsconfig.json");
 site.ignore(".audio-cache");
 
+type PostTranslation = {
+  code: string;
+  label: string;
+  url: string;
+};
+
+const languageNames = new Intl.DisplayNames(["en"], { type: "language" });
+const rtlLanguages = new Set([
+  "ar",
+  "arc",
+  "ckb",
+  "dv",
+  "fa",
+  "he",
+  "khw",
+  "ks",
+  "ku",
+  "nqo",
+  "ps",
+  "sd",
+  "ug",
+  "ur",
+  "yi",
+]);
+const rtlScripts = new Set([
+  "Adlm",
+  "Arab",
+  "Hebr",
+  "Nkoo",
+  "Rohg",
+  "Syrc",
+  "Thaa",
+]);
+
+site.filter("textDirection", (language?: string) => {
+  try {
+    const locale = new Intl.Locale(language || "en");
+    return rtlLanguages.has(locale.language) ||
+        (locale.script ? rtlScripts.has(locale.script) : false)
+      ? "rtl"
+      : "ltr";
+  } catch {
+    return "ltr";
+  }
+});
+
+site.filter("postTranslations", (originalUrl: string) => {
+  const slug = originalUrl.match(/^\/posts\/([^/]+)\/$/)?.[1];
+  if (!slug) return [];
+
+  const translations: PostTranslation[] = [];
+  try {
+    for (const entry of Deno.readDirSync("./posts")) {
+      if (!entry.isFile) continue;
+      const match = entry.name.match(
+        /^(.+)\.([a-z]{2,3}(?:-[a-z0-9]{2,8})*)\.md$/i,
+      );
+      if (!match || match[1] !== slug) continue;
+
+      const code = match[2].toLowerCase();
+      translations.push({
+        code,
+        label: languageNames.of(code) ?? code.toUpperCase(),
+        url: `/posts/${slug}/${code}/`,
+      });
+    }
+  } catch (error) {
+    if (!(error instanceof Deno.errors.NotFound)) throw error;
+  }
+
+  return [
+    { code: "en", label: "English", url: originalUrl },
+    ...translations.sort((a, b) => a.code.localeCompare(b.code)),
+  ];
+});
+
 site.filter("readingTime", (content: string) => {
   const words = content
     .replace(/<[^>]*>/g, " ")
@@ -47,7 +123,7 @@ site.filter("postAudio", (url: string) => postAudio.get(url) ?? "");
 
 site.use(feed({
   output: "/feed.xml",
-  query: "url^=/posts/",
+  query: "url^=/posts/ translationOf=undefined",
   sort: "date=desc",
   info: {
     title: "Farzan Tinati",

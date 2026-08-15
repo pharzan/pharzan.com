@@ -26,7 +26,7 @@ bodyClass: me-page
       </svg>
     </a>
   </header>
-  {{ for post of search.pages("url^=/posts/", "date=desc") }}
+  {{ for post of search.pages("url^=/posts/ translationOf=undefined", "date=desc") }}
     <article class="post-summary">
       <header class="post-header">
         <h3 class="post-title">

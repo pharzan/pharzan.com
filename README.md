@@ -38,6 +38,7 @@ Lume will print the local URL in the terminal and rebuild the site when source f
 | `deno task setup-hooks` | Configure the repository's Git hooks |
 | `deno task deploy` | Optimize images, build, and deploy to Firebase Hosting |
 | `pnpm generate-audio posts/<slug>.md` | Generate and cache an MP3 narration for one post |
+| `pnpm translate-post posts/<slug>.md <language>` | Translate one post with Gemini |
 
 The same commands are available through `make`:
 
@@ -112,6 +113,24 @@ pnpm generate-audio posts/example.md --force
 ```
 
 Cost figures are estimates based on the pricing constants in `scripts/generate-audio.ts`; Cloud Billing remains the authoritative source. The command requires `ffmpeg` and outputs a mono, 24 kHz, 64 kbps MP3.
+
+## Translate a post
+
+Translation uses the same Google Cloud project, Vertex AI API, and Application Default Credentials as audio generation. Pass a BCP 47 language code such as `nb`, `fr`, or `pt-BR`:
+
+```sh
+pnpm translate-post posts/example.md nb
+```
+
+The command translates the title, description, and human-readable Markdown while asking Gemini to preserve code, URLs, link destinations, image paths, HTML attributes, and Markdown structure. It appends a sentence in the target language identifying the model used for translation. It creates `posts/example.nb.md`, served at `/posts/example/nb/`. When one or more translations exist, the article displays language badges linking between the English original and every translation.
+
+Existing translation files are not overwritten unless explicitly requested:
+
+```sh
+pnpm translate-post posts/example.md nb --force
+```
+
+Set `GEMINI_TRANSLATION_MODEL` to override the default `gemini-2.5-flash` model.
 
 ## Deployment
 
