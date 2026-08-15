@@ -568,6 +568,33 @@
   color: var(--accent);
 }
 
+.me-page .post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45em 0.75em;
+  flex-wrap: wrap;
+  margin: 0 0 1.5em;
+  color: var(--muted);
+  font-size: 0.85em;
+  font-style: normal;
+}
+
+.me-page .post-meta > span + span::before {
+  content: "·";
+  margin-right: 0.75em;
+  color: var(--accent);
+}
+
+.me-page .post-meta-tags {
+  display: inline-flex;
+  gap: 0.4em;
+  flex-wrap: wrap;
+}
+
+.me-page .post-meta .tag {
+  font-size: 0.9em;
+}
+
 .me-page .post-header {
   display: flex;
   justify-content: space-between;

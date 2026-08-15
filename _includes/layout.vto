@@ -25,6 +25,26 @@
         <a href="/analytics/">Analytics</a>
       </nav>
 
+      {{ if url.startsWith("/posts/") && url !== "/posts/" }}
+        <aside class="post-meta" aria-label="Post details">
+          <span>By <a rel="author" href="/me/">Farzan Tinati</a></span>
+          {{ if date }}
+            <span>
+              Published
+              <time datetime="{{ date |> date('yyyy-MM-dd') }}">{{ date |> date("MMMM d, yyyy") }}</time>
+            </span>
+          {{ /if }}
+          <span>{{ content |> readingTime }} min read</span>
+          {{ if tags }}
+            <span class="post-meta-tags" aria-label="Tags">
+              {{ for tag of tags }}
+                <span class="tag">{{ tag }}</span>
+              {{ /for }}
+            </span>
+          {{ /if }}
+        </aside>
+      {{ /if }}
+
       {{ content }}
 
       {{ if url.startsWith("/posts/") && url !== "/posts/" }}
