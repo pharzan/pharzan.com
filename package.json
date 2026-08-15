@@ -1,0 +1,25 @@
+{
+  "name": "pharzan.com",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "generate-audio": "node --import tsx scripts/generate-audio.ts",
+    "test:audio": "node --import tsx --test scripts/generate-audio.test.ts",
+    "typecheck:audio": "tsc --noEmit"
+  },
+  "packageManager": "pnpm@11.5.0",
+  "dependencies": {
+    "@google/genai": "^2.17.1",
+    "gray-matter": "^4.0.3",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  }
+}

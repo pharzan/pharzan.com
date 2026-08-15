@@ -1,4 +1,5 @@
 {
+  "nodeModulesDir": "none",
   "imports": {
     "lume/": "https://deno.land/x/lume@v3.0.9/",
     "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.12.5/"

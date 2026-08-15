@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "source": "posts/first-post.md",
+  "output": "assets/audio/first-post.mp3",
+  "generations": [
+    {
+      "id": "9256fa7b-bc73-499e-96b8-f487c6c41a79",
+      "startedAt": "2026-08-15T11:45:23.912Z",
+      "contentHash": "e1b2a4dfb37e2c4f035bd8baef60411f4ff4433372329fa9943deb9491b8e766",
+      "model": "gemini-2.5-pro-tts",
+      "voice": "Orus",
+      "provider": "vertex-ai",
+      "project": "pharzan",
+      "location": "global",
+      "prompt": "Read the article exactly as provided.\n\nUse an engaging, persuasive narrator voice with a naturally low pitch.\nSound confident, thoughtful, warm, and conversational. Use measured pacing\nand subtle emphasis on important ideas. Pause naturally between sections.\n\nDo not summarize, rewrite, introduce, conclude, comment on, or add anything\nto the article. Do not sound theatrical, overly enthusiastic, or sales-oriented.",
+      "pricing": {
+        "currency": "USD",
+        "inputPerMillionTokens": 1,
+        "outputPerMillionTokens": 20
+      },
+      "status": "failed",
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "estimatedUsd": 0,
+      "chunks": [],
+      "completedAt": "2026-08-15T11:45:24.002Z",
+      "error": "Could not load the default credentials. Browse to https://cloud.google.com/docs/authentication/getting-started for more information."
+    },
+    {
+      "id": "887ac781-235b-49f3-8310-946b3100a76c",
+      "startedAt": "2026-08-15T12:01:50.457Z",
+      "contentHash": "e1b2a4dfb37e2c4f035bd8baef60411f4ff4433372329fa9943deb9491b8e766",
+      "model": "gemini-2.5-pro-tts",
+      "voice": "Orus",
+      "provider": "vertex-ai",
+      "project": "pharzan",
+      "location": "global",
+      "prompt": "Read the article exactly as provided.\n\nUse an engaging, persuasive narrator voice with a naturally low pitch.\nSound confident, thoughtful, warm, and conversational. Use measured pacing\nand subtle emphasis on important ideas. Pause naturally between sections.\n\nDo not summarize, rewrite, introduce, conclude, comment on, or add anything\nto the article. Do not sound theatrical, overly enthusiastic, or sales-oriented.",
+      "pricing": {
+        "currency": "USD",
+        "inputPerMillionTokens": 1,
+        "outputPerMillionTokens": 20
+      },
+      "status": "completed",
+      "inputTokens": 245,
+      "outputTokens": 1144,
+      "estimatedUsd": 0.023125,
+      "chunks": [
+        {
+          "index": 0,
+          "hash": "feb7fa6ebe2068e667b24754a89f1b1c9bee7cde352e4b62e72650b061000267",
+          "status": "completed",
+          "inputTokens": 245,
+          "outputTokens": 1144,
+          "estimatedUsd": 0.023125,
+          "usageSource": "api"
+        }
+      ],
+      "completedAt": "2026-08-15T12:02:27.388Z"
+    }
+  ],
+  "currentHash": "e1b2a4dfb37e2c4f035bd8baef60411f4ff4433372329fa9943deb9491b8e766"
+}

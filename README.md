@@ -7,8 +7,11 @@ The site is built with [Lume](https://lume.land/) and [Deno](https://deno.com/) 
 ## Prerequisites
 
 - [Deno](https://docs.deno.com/runtime/getting_started/installation/)
+- [Node.js](https://nodejs.org/) 20 or newer and [pnpm](https://pnpm.io/) for audio generation
 - [Firebase CLI](https://firebase.google.com/docs/cli) for deployment
+- [Google Cloud CLI](https://cloud.google.com/sdk/docs/install) for Vertex AI authentication
 - ImageMagick on Linux, or `sips` on macOS, for image optimization and deployment
+- [ffmpeg](https://ffmpeg.org/) for audio generation
 
 ## Getting started
 
@@ -34,6 +37,7 @@ Lume will print the local URL in the terminal and rebuild the site when source f
 | `deno task optimize-images` | Resize and optimize images in `assets/` |
 | `deno task setup-hooks` | Configure the repository's Git hooks |
 | `deno task deploy` | Optimize images, build, and deploy to Firebase Hosting |
+| `pnpm generate-audio posts/<slug>.md` | Generate and cache an MP3 narration for one post |
 
 The same commands are available through `make`:
 
@@ -84,6 +88,30 @@ tags: [example]
 ```
 
 Use the `new-post` task to generate this structure automatically. Add post images under `assets/images/` and run `deno task optimize-images` before committing large image files.
+
+## Generate post audio
+
+Install the Node dependencies, select a billed Google Cloud project with the Vertex AI API enabled, and create Application Default Credentials (ADC):
+
+```sh
+pnpm install
+gcloud config set project PROJECT_ID
+gcloud services enable aiplatform.googleapis.com
+gcloud auth application-default login
+pnpm generate-audio posts/example.md
+```
+
+The command uses ADC to authenticate to Vertex AI. It reads the project from `GOOGLE_CLOUD_PROJECT` when set, otherwise it uses the active `gcloud` project; `GOOGLE_CLOUD_LOCATION` is optional and defaults to `global`.
+
+It extracts the human-readable parts of the post, splits long articles at prose boundaries, generates narration with `gemini-2.5-pro-tts`, and writes `assets/audio/example.mp3`. It excludes front matter, code blocks, images, HTML, and raw URLs. The embedded narration direction uses the `Orus` voice with an engaging, persuasive, low-pitch delivery.
+
+Generated MP3 files and their `.audio-cache/<slug>.json` history are intended to be committed. The history stores every generation attempt, token usage, and its estimated USD cost. Temporary resumable chunks under `.audio-cache/chunks/` are ignored by Git. Unchanged content is skipped; regenerate it explicitly with:
+
+```sh
+pnpm generate-audio posts/example.md --force
+```
+
+Cost figures are estimates based on the pricing constants in `scripts/generate-audio.ts`; Cloud Billing remains the authoritative source. The command requires `ffmpeg` and outputs a mono, 24 kHz, 64 kbps MP3.
 
 ## Deployment
 

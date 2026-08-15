@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "source": "posts/imposters-syndrome-is-real.md",
+  "output": "assets/audio/imposters-syndrome-is-real.mp3",
+  "generations": [
+    {
+      "id": "b8805df4-6c50-444b-8b72-ef070d5e1044",
+      "startedAt": "2026-08-15T12:04:56.878Z",
+      "contentHash": "51be86bfe8c43471ced1afb1e1f1534c431c1ee5ff578eb55ee385dd62250356",
+      "model": "gemini-2.5-pro-tts",
+      "voice": "Orus",
+      "provider": "vertex-ai",
+      "project": "pharzan",
+      "location": "global",
+      "prompt": "Read the article exactly as provided.\n\nUse an engaging, persuasive narrator voice with a naturally low pitch.\nSound confident, thoughtful, warm, and conversational. Use measured pacing\nand subtle emphasis on important ideas. Pause naturally between sections.\n\nDo not summarize, rewrite, introduce, conclude, comment on, or add anything\nto the article. Do not sound theatrical, overly enthusiastic, or sales-oriented.",
+      "pricing": {
+        "currency": "USD",
+        "inputPerMillionTokens": 1,
+        "outputPerMillionTokens": 20
+      },
+      "status": "completed",
+      "inputTokens": 944,
+      "outputTokens": 7067,
+      "estimatedUsd": 0.142284,
+      "chunks": [
+        {
+          "index": 0,
+          "hash": "197fc45eafc3c8de0b69ef57a5d8383fbf77bb63f3124bc2196d96bd0dd52d42",
+          "status": "completed",
+          "inputTokens": 944,
+          "outputTokens": 7067,
+          "estimatedUsd": 0.142284,
+          "usageSource": "api"
+        }
+      ],
+      "completedAt": "2026-08-15T12:08:19.490Z"
+    }
+  ],
+  "currentHash": "51be86bfe8c43471ced1afb1e1f1534c431c1ee5ff578eb55ee385dd62250356"
+}
