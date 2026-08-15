@@ -122,7 +122,7 @@ pnpm generate-audio posts/example.fa.md
 
 This creates `assets/audio/example.fa.mp3`. The player appears automatically on `/posts/example/fa/` when that file exists. Language availability and launch readiness depend on the Gemini TTS model; some languages, including Persian, are currently Preview.
 
-Persian translations automatically use a contemporary Iranian conversational delivery with natural spoken pronunciation and contractions instead of the standard narrator style. Regenerate an existing Persian MP3 after changing the source or delivery prompt:
+All posts use a natural conversational delivery instead of an audiobook-style narration. English, Persian, and Turkish have tailored prompts for contemporary spoken cadence and pronunciation; other languages use the same language-neutral conversational direction. Regenerate an existing MP3 after changing the source or delivery prompt:
 
 ```sh
 pnpm generate-audio posts/example.fa.md --force

@@ -29,14 +29,31 @@ export const SAMPLE_RATE = 24_000;
 export const CACHE_VERSION = 1;
 
 export const NARRATION_PROMPT = `
-Read the article exactly as provided.
+Speak the article in its original language as if the author is explaining their
+ideas directly to one friend in a relaxed conversation.
 
-Use an engaging, persuasive narrator voice with a naturally low pitch.
-Sound confident, thoughtful, warm, and conversational. Use measured pacing
-and subtle emphasis on important ideas. Pause naturally between sections.
+Use natural spoken pronunciation, an informal but thoughtful cadence, varied
+sentence rhythm, and brief pauses between ideas. Sound warm, confident, and
+unhurried.
 
-Do not summarize, rewrite, introduce, conclude, comment on, or add anything
-to the article. Do not sound theatrical, overly enthusiastic, or sales-oriented.
+Preserve the meaning and structure, but adapt formal written constructions into
+idiomatic speech when needed. Do not summarize, introduce, conclude, comment
+on, or add ideas. Avoid an audiobook, literary recitation, lecture, newsreader,
+theatrical, ceremonial, overly enthusiastic, or sales-oriented tone.
+`.trim();
+
+export const ENGLISH_CONVERSATIONAL_PROMPT = `
+Speak the article in natural, contemporary English, as if the author is
+explaining their ideas directly to one friend in a relaxed conversation.
+
+Use an informal but thoughtful cadence, natural spoken pronunciation and
+contractions, varied sentence rhythm, and brief pauses between ideas. Keep the
+delivery warm, confident, and unhurried.
+
+Preserve the meaning and structure, but adapt formal written constructions into
+idiomatic spoken English when needed. Do not summarize, introduce, conclude,
+comment on, or add ideas. Avoid an audiobook, literary recitation, lecture,
+newsreader, theatrical, ceremonial, overly enthusiastic, or sales-oriented tone.
 `.trim();
 
 export const PERSIAN_CONVERSATIONAL_PROMPT = `
@@ -51,6 +68,21 @@ Preserve the meaning and structure of the article, but adapt formal written
 constructions into idiomatic spoken Persian when needed. Do not summarize,
 introduce, conclude, comment on, or add ideas. Avoid an audiobook, literary
 recitation, lecture, newsreader, theatrical, or ceremonial tone.
+`.trim();
+
+export const TURKISH_CONVERSATIONAL_PROMPT = `
+Speak the article in natural, contemporary Turkish as spoken in Turkey, as if
+the author is explaining their ideas directly to one friend in a relaxed
+conversation.
+
+Use an informal but thoughtful cadence, natural spoken pronunciation and
+phrasing, varied sentence rhythm, and brief pauses between ideas. Keep the
+delivery warm, confident, and unhurried.
+
+Preserve the meaning and structure, but adapt formal written constructions into
+idiomatic spoken Turkish when needed. Do not summarize, introduce, conclude,
+comment on, or add ideas. Avoid an audiobook, literary recitation, lecture,
+newsreader, theatrical, ceremonial, overly enthusiastic, or sales-oriented tone.
 `.trim();
 
 const PRICING = {
@@ -281,11 +313,18 @@ function sha256(value: string | Buffer): string {
 }
 
 export function narrationPromptForLanguage(language: unknown): string {
-  if (typeof language !== "string") return NARRATION_PROMPT;
+  if (typeof language !== "string") return ENGLISH_CONVERSATIONAL_PROMPT;
   try {
-    return new Intl.Locale(language).language === "fa"
-      ? PERSIAN_CONVERSATIONAL_PROMPT
-      : NARRATION_PROMPT;
+    switch (new Intl.Locale(language).language) {
+      case "en":
+        return ENGLISH_CONVERSATIONAL_PROMPT;
+      case "fa":
+        return PERSIAN_CONVERSATIONAL_PROMPT;
+      case "tr":
+        return TURKISH_CONVERSATIONAL_PROMPT;
+      default:
+        return NARRATION_PROMPT;
+    }
   } catch {
     return NARRATION_PROMPT;
   }

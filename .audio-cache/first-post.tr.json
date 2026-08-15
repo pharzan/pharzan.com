@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "source": "posts/first-post.tr.md",
+  "output": "assets/audio/first-post.tr.mp3",
+  "generations": [
+    {
+      "id": "540a0c9d-4e2b-4dc5-8e5b-43b4a9632c4d",
+      "startedAt": "2026-08-15T13:34:36.014Z",
+      "contentHash": "a8a7af5670f694a1efd458088ac79b8ed4c416ea80988937c668480f157c4862",
+      "model": "gemini-2.5-pro-tts",
+      "voice": "Orus",
+      "provider": "vertex-ai",
+      "project": "pharzan",
+      "location": "global",
+      "prompt": "Speak the article in natural, contemporary Turkish as spoken in Turkey, as if\nthe author is explaining their ideas directly to one friend in a relaxed\nconversation.\n\nUse an informal but thoughtful cadence, natural spoken pronunciation and\nphrasing, varied sentence rhythm, and brief pauses between ideas. Keep the\ndelivery warm, confident, and unhurried.\n\nPreserve the meaning and structure, but adapt formal written constructions into\nidiomatic spoken Turkish when needed. Do not summarize, introduce, conclude,\ncomment on, or add ideas. Avoid an audiobook, literary recitation, lecture,\nnewsreader, theatrical, ceremonial, overly enthusiastic, or sales-oriented tone.",
+      "pricing": {
+        "currency": "USD",
+        "inputPerMillionTokens": 1,
+        "outputPerMillionTokens": 20
+      },
+      "status": "completed",
+      "inputTokens": 334,
+      "outputTokens": 16376,
+      "estimatedUsd": 0.327854,
+      "chunks": [
+        {
+          "index": 0,
+          "hash": "c89d2dabbcf6ae50901974acc6966e61b271c3a1a295e1d2cfc078bd8f9f3a34",
+          "status": "completed",
+          "inputTokens": 334,
+          "outputTokens": 16376,
+          "estimatedUsd": 0.327854,
+          "usageSource": "api"
+        }
+      ],
+      "completedAt": "2026-08-15T13:39:39.037Z"
+    },
+    {
+      "id": "69c16fc0-fca4-444f-bd73-b205bcae2764",
+      "startedAt": "2026-08-15T13:41:01.634Z",
+      "contentHash": "a8a7af5670f694a1efd458088ac79b8ed4c416ea80988937c668480f157c4862",
+      "model": "gemini-2.5-pro-tts",
+      "voice": "Orus",
+      "provider": "vertex-ai",
+      "project": "pharzan",
+      "location": "global",
+      "prompt": "Speak the article in natural, contemporary Turkish as spoken in Turkey, as if\nthe author is explaining their ideas directly to one friend in a relaxed\nconversation.\n\nUse an informal but thoughtful cadence, natural spoken pronunciation and\nphrasing, varied sentence rhythm, and brief pauses between ideas. Keep the\ndelivery warm, confident, and unhurried.\n\nPreserve the meaning and structure, but adapt formal written constructions into\nidiomatic spoken Turkish when needed. Do not summarize, introduce, conclude,\ncomment on, or add ideas. Avoid an audiobook, literary recitation, lecture,\nnewsreader, theatrical, ceremonial, overly enthusiastic, or sales-oriented tone.",
+      "pricing": {
+        "currency": "USD",
+        "inputPerMillionTokens": 1,
+        "outputPerMillionTokens": 20
+      },
+      "status": "completed",
+      "inputTokens": 334,
+      "outputTokens": 1193,
+      "estimatedUsd": 0.024194,
+      "chunks": [
+        {
+          "index": 0,
+          "hash": "c89d2dabbcf6ae50901974acc6966e61b271c3a1a295e1d2cfc078bd8f9f3a34",
+          "status": "completed",
+          "inputTokens": 334,
+          "outputTokens": 1193,
+          "estimatedUsd": 0.024194,
+          "usageSource": "api"
+        }
+      ],
+      "completedAt": "2026-08-15T13:41:35.877Z"
+    }
+  ],
+  "currentHash": "a8a7af5670f694a1efd458088ac79b8ed4c416ea80988937c668480f157c4862"
+}

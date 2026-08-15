@@ -3,11 +3,13 @@ import test from "node:test";
 import {
   calculateCost,
   chunkNarration,
+  ENGLISH_CONVERSATIONAL_PROMPT,
   isRetryableError,
   markdownToNarration,
   NARRATION_PROMPT,
   narrationPromptForLanguage,
   PERSIAN_CONVERSATIONAL_PROMPT,
+  TURKISH_CONVERSATIONAL_PROMPT,
 } from "./generate-audio.ts";
 
 test("extracts human-readable Markdown and removes implementation details", () => {
@@ -99,13 +101,25 @@ test("retries only rate limits and temporary server failures", () => {
   }
 });
 
-test("uses conversational delivery for Persian translations", () => {
+test("uses language-specific conversational delivery", () => {
   assert.equal(
     narrationPromptForLanguage("fa-IR"),
     PERSIAN_CONVERSATIONAL_PROMPT,
   );
   assert.match(PERSIAN_CONVERSATIONAL_PROMPT, /spoken Persian/);
   assert.match(PERSIAN_CONVERSATIONAL_PROMPT, /Avoid an audiobook/);
-  assert.equal(narrationPromptForLanguage("en"), NARRATION_PROMPT);
-  assert.equal(narrationPromptForLanguage(undefined), NARRATION_PROMPT);
+  assert.equal(
+    narrationPromptForLanguage("tr-TR"),
+    TURKISH_CONVERSATIONAL_PROMPT,
+  );
+  assert.match(TURKISH_CONVERSATIONAL_PROMPT, /spoken in Turkey/);
+  assert.equal(
+    narrationPromptForLanguage("en-GB"),
+    ENGLISH_CONVERSATIONAL_PROMPT,
+  );
+  assert.equal(
+    narrationPromptForLanguage(undefined),
+    ENGLISH_CONVERSATIONAL_PROMPT,
+  );
+  assert.equal(narrationPromptForLanguage("fr"), NARRATION_PROMPT);
 });
