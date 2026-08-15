@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "source": "posts/first-post.fa.md",
+  "output": "assets/audio/first-post.fa.mp3",
+  "generations": [
+    {
+      "id": "6b9c2220-69a1-4bde-b0dd-26a813db87eb",
+      "startedAt": "2026-08-15T13:22:35.112Z",
+      "contentHash": "b9845c7a70f5ca13c74506286bd134bd868d5edd11688c9b7fffbece56339e0f",
+      "model": "gemini-2.5-pro-tts",
+      "voice": "Orus",
+      "provider": "vertex-ai",
+      "project": "pharzan",
+      "location": "global",
+      "prompt": "Read the article exactly as provided.\n\nUse an engaging, persuasive narrator voice with a naturally low pitch.\nSound confident, thoughtful, warm, and conversational. Use measured pacing\nand subtle emphasis on important ideas. Pause naturally between sections.\n\nDo not summarize, rewrite, introduce, conclude, comment on, or add anything\nto the article. Do not sound theatrical, overly enthusiastic, or sales-oriented.",
+      "pricing": {
+        "currency": "USD",
+        "inputPerMillionTokens": 1,
+        "outputPerMillionTokens": 20
+      },
+      "status": "completed",
+      "inputTokens": 314,
+      "outputTokens": 1633,
+      "estimatedUsd": 0.032974,
+      "chunks": [
+        {
+          "index": 0,
+          "hash": "a54ac8cbb07a6625bcd8e1aa2a5c0f606575ac09665bc6147da9ec2194971596",
+          "status": "completed",
+          "inputTokens": 314,
+          "outputTokens": 1633,
+          "estimatedUsd": 0.032974,
+          "usageSource": "api"
+        }
+      ],
+      "completedAt": "2026-08-15T13:23:18.094Z"
+    },
+    {
+      "id": "e142966f-e42a-43c1-b797-e6738c4961fd",
+      "startedAt": "2026-08-15T13:26:09.518Z",
+      "contentHash": "0b6643d7b8d7c6660607c5775d43d74fda55630ee9835c880805de353f218b55",
+      "model": "gemini-2.5-pro-tts",
+      "voice": "Orus",
+      "provider": "vertex-ai",
+      "project": "pharzan",
+      "location": "global",
+      "prompt": "Speak the article in natural, contemporary Iranian Persian, as if the author is\nexplaining their ideas directly to one friend in a relaxed conversation.\n\nUse an informal but thoughtful cadence, natural spoken pronunciation,\ncontractions, and varied sentence rhythm where appropriate. Keep the delivery\nwarm, confident, and unhurried, with brief natural pauses between ideas.\n\nPreserve the meaning and structure of the article, but adapt formal written\nconstructions into idiomatic spoken Persian when needed. Do not summarize,\nintroduce, conclude, comment on, or add ideas. Avoid an audiobook, literary\nrecitation, lecture, newsreader, theatrical, or ceremonial tone.",
+      "pricing": {
+        "currency": "USD",
+        "inputPerMillionTokens": 1,
+        "outputPerMillionTokens": 20
+      },
+      "status": "completed",
+      "inputTokens": 365,
+      "outputTokens": 1479,
+      "estimatedUsd": 0.029945,
+      "chunks": [
+        {
+          "index": 0,
+          "hash": "a54ac8cbb07a6625bcd8e1aa2a5c0f606575ac09665bc6147da9ec2194971596",
+          "status": "completed",
+          "inputTokens": 365,
+          "outputTokens": 1479,
+          "estimatedUsd": 0.029945,
+          "usageSource": "api"
+        }
+      ],
+      "completedAt": "2026-08-15T13:26:50.328Z"
+    }
+  ],
+  "currentHash": "0b6643d7b8d7c6660607c5775d43d74fda55630ee9835c880805de353f218b55"
+}

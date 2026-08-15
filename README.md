@@ -114,6 +114,20 @@ pnpm generate-audio posts/example.md --force
 
 Cost figures are estimates based on the pricing constants in `scripts/generate-audio.ts`; Cloud Billing remains the authoritative source. The command requires `ffmpeg` and outputs a mono, 24 kHz, 64 kbps MP3.
 
+Translated posts can be narrated in the same way:
+
+```sh
+pnpm generate-audio posts/example.fa.md
+```
+
+This creates `assets/audio/example.fa.mp3`. The player appears automatically on `/posts/example/fa/` when that file exists. Language availability and launch readiness depend on the Gemini TTS model; some languages, including Persian, are currently Preview.
+
+Persian translations automatically use a contemporary Iranian conversational delivery with natural spoken pronunciation and contractions instead of the standard narrator style. Regenerate an existing Persian MP3 after changing the source or delivery prompt:
+
+```sh
+pnpm generate-audio posts/example.fa.md --force
+```
+
 ## Translate a post
 
 Translation uses the same Google Cloud project, Vertex AI API, and Application Default Credentials as audio generation. Pass a BCP 47 language code such as `nb`, `fr`, or `pt-BR`:

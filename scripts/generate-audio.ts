@@ -39,6 +39,20 @@ Do not summarize, rewrite, introduce, conclude, comment on, or add anything
 to the article. Do not sound theatrical, overly enthusiastic, or sales-oriented.
 `.trim();
 
+export const PERSIAN_CONVERSATIONAL_PROMPT = `
+Speak the article in natural, contemporary Iranian Persian, as if the author is
+explaining their ideas directly to one friend in a relaxed conversation.
+
+Use an informal but thoughtful cadence, natural spoken pronunciation,
+contractions, and varied sentence rhythm where appropriate. Keep the delivery
+warm, confident, and unhurried, with brief natural pauses between ideas.
+
+Preserve the meaning and structure of the article, but adapt formal written
+constructions into idiomatic spoken Persian when needed. Do not summarize,
+introduce, conclude, comment on, or add ideas. Avoid an audiobook, literary
+recitation, lecture, newsreader, theatrical, or ceremonial tone.
+`.trim();
+
 const PRICING = {
   currency: "USD",
   inputPerMillionTokens: 1,
@@ -266,11 +280,22 @@ function sha256(value: string | Buffer): string {
   return createHash("sha256").update(value).digest("hex");
 }
 
-function contentHash(narration: string): string {
+export function narrationPromptForLanguage(language: unknown): string {
+  if (typeof language !== "string") return NARRATION_PROMPT;
+  try {
+    return new Intl.Locale(language).language === "fa"
+      ? PERSIAN_CONVERSATIONAL_PROMPT
+      : NARRATION_PROMPT;
+  } catch {
+    return NARRATION_PROMPT;
+  }
+}
+
+function contentHash(narration: string, prompt: string): string {
   return sha256(JSON.stringify({
     cacheVersion: CACHE_VERSION,
     narration,
-    prompt: NARRATION_PROMPT,
+    prompt,
     model: MODEL,
     voice: VOICE,
     maximumChunkCharacters: MAX_CHUNK_CHARACTERS,
@@ -393,10 +418,11 @@ async function withRetries<T>(operation: () => Promise<T>): Promise<T> {
 async function generateChunk(
   ai: GoogleGenAI,
   text: string,
+  prompt: string,
 ): Promise<
   { pcm: Buffer; usage: Omit<ChunkUsage, "index" | "hash" | "status"> }
 > {
-  const input = `${NARRATION_PROMPT}\n\n<article>\n${text}\n</article>`;
+  const input = `${prompt}\n\n<article>\n${text}\n</article>`;
   const response = await withRetries(() =>
     ai.models.generateContent({
       model: MODEL,
@@ -628,12 +654,13 @@ export async function main(args = process.argv.slice(2)): Promise<void> {
   const project = await resolveGoogleCloudProject();
   await ensureFfmpeg();
   const source = await resolveInput(input);
-  const narration = markdownToNarration(
-    await readFile(source.absolute, "utf8"),
-  );
+  const markdown = await readFile(source.absolute, "utf8");
+  const parsedPost = matter(markdown);
+  const narrationPrompt = narrationPromptForLanguage(parsedPost.data.lang);
+  const narration = markdownToNarration(markdown);
   if (!narration) throw new Error("The Markdown file has no narratable text.");
 
-  const hash = contentHash(narration);
+  const hash = contentHash(narration, narrationPrompt);
   const relativeOutput = path.posix.join(
     "assets/audio",
     `${
@@ -696,7 +723,7 @@ export async function main(args = process.argv.slice(2)): Promise<void> {
     provider: "vertex-ai",
     project,
     location: VERTEX_LOCATION,
-    prompt: NARRATION_PROMPT,
+    prompt: narrationPrompt,
     pricing: PRICING,
     status: "running",
     inputTokens: 0,
@@ -743,7 +770,7 @@ export async function main(args = process.argv.slice(2)): Promise<void> {
       }
 
       console.log(`Generating chunk ${index + 1}/${chunks.length}...`);
-      const result = await generateChunk(ai, chunk);
+      const result = await generateChunk(ai, chunk, narrationPrompt);
       generation.chunks = generation.chunks.filter((candidate) =>
         candidate.index !== index
       );

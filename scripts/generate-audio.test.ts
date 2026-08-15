@@ -5,6 +5,9 @@ import {
   chunkNarration,
   isRetryableError,
   markdownToNarration,
+  NARRATION_PROMPT,
+  narrationPromptForLanguage,
+  PERSIAN_CONVERSATIONAL_PROMPT,
 } from "./generate-audio.ts";
 
 test("extracts human-readable Markdown and removes implementation details", () => {
@@ -94,4 +97,15 @@ test("retries only rate limits and temporary server failures", () => {
   for (const status of [400, 401, 403, 404, 413]) {
     assert.equal(isRetryableError({ status }), false);
   }
+});
+
+test("uses conversational delivery for Persian translations", () => {
+  assert.equal(
+    narrationPromptForLanguage("fa-IR"),
+    PERSIAN_CONVERSATIONAL_PROMPT,
+  );
+  assert.match(PERSIAN_CONVERSATIONAL_PROMPT, /spoken Persian/);
+  assert.match(PERSIAN_CONVERSATIONAL_PROMPT, /Avoid an audiobook/);
+  assert.equal(narrationPromptForLanguage("en"), NARRATION_PROMPT);
+  assert.equal(narrationPromptForLanguage(undefined), NARRATION_PROMPT);
 });
