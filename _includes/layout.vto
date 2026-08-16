@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ lang || 'en' }}" dir="{{ lang |> textDirection }}">
+<html lang="{{ lang || 'en' }}" dir="ltr">
   <head>
     {{ set pageTitle = title + (!title.includes('Farzan Tinati') ? ' | Farzan Tinati' : '') }}
     {{ set isPost = url.startsWith('/posts/') && url !== '/posts/' }}
@@ -56,7 +56,7 @@
     <script defer src="https://cloud.umami.is/script.js"
       data-website-id="aaa4c2de-92e2-4e06-b111-ad366699c4a9"></script>
   </head>
-  <body class="{{ bodyClass }}">
+  <body class="{{ bodyClass }}" lang="en" dir="ltr">
     <main>
       <nav class="site-nav" aria-label="Primary">
         <a href="/">Home</a>
@@ -142,7 +142,13 @@
         {{ /if }}
       {{ /if }}
 
-      {{ content }}
+      {{ if isPost }}
+        <article class="post-content" lang="{{ lang || 'en' }}" dir="{{ lang |> textDirection }}">
+          {{ content }}
+        </article>
+      {{ else }}
+        {{ content }}
+      {{ /if }}
 
       {{ if url.startsWith("/posts/") && url !== "/posts/" }}
         <hr />
