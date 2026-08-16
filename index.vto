@@ -32,9 +32,26 @@ bodyClass: me-page
         <h3 class="post-title">
           <a href="{{ post.url }}">{{ post.title }}</a>
         </h3>
-        {{ if post.date }}
-          <time class="post-date">{{ post.date |> date("yyyy-MM-dd HH:mm") }}</time>
-        {{ /if }}
+        <div class="post-summary-meta">
+          {{ if post.date }}
+            <time class="post-date">{{ post.date |> date("yyyy-MM-dd HH:mm") }}</time>
+          {{ /if }}
+          {{ set languages = post.url |> postTranslations }}
+          {{ if languages.length > 1 }}
+            <nav class="post-summary-languages" aria-label="Available languages for {{ post.title }}">
+              <span class="language-switcher-icon" aria-hidden="true">🌐</span>
+              {{ for language of languages }}
+                <a
+                  href="{{ language.url }}"
+                  lang="{{ language.code }}"
+                  hreflang="{{ language.code }}"
+                  title="Read in {{ language.label }}"
+                  aria-label="Read {{ post.title }} in {{ language.label }}"
+                >{{ language.code.toUpperCase() }}</a>
+              {{ /for }}
+            </nav>
+          {{ /if }}
+        </div>
       </header>
       {{ if post.tags }}
         <div class="post-tags">

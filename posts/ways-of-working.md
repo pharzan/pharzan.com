@@ -36,7 +36,7 @@ I imagine it like this: you have a giant ship to build. You either give the work
 
 This is actually quite tricky to do because you need to be open to finding the solution together. You need to be able to know what you are deciding but be open to decide with others. Titles can sometimes make it harder to keep an open mind, but the right culture helps overcome that.
 
-# Size and Structure Matters Too
+## Size and Structure Matters Too
 
 But cultural factors aren’t the only thing that shape management styles — company size and structure also play a big role.
 In large organizations, there are often more layers of management, established processes, and clearer roles — which can make decision-making slower but more predictable.

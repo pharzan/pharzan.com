@@ -5,6 +5,8 @@ description: "Discover why visual testing matters for complex algorithms and geo
 bodyClass: me-page
 date: 2025-10-22 17:20
 tags: [software, development, testing, learning, tools]
+image: /assets/images/Screenshot-visual-test.png
+imageAlt: "A visual test comparing geometric output before and after rotation"
 ---
 
 # Visual Testing in Software | The Problem I Couldn't See

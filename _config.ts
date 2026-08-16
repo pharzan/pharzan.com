@@ -1,5 +1,4 @@
 import lume from "lume/mod.ts";
-import metas from "lume/plugins/metas.ts";
 import sitemap from "lume/plugins/sitemap.ts";
 import feed from "lume/plugins/feed.ts";
 import search from "lume/plugins/search.ts";
@@ -106,6 +105,80 @@ site.filter("readingTime", (content: string) => {
   return Math.max(1, Math.ceil(words / 200));
 });
 
+site.filter(
+  "structuredData",
+  (
+    url: string,
+    title?: string,
+    description?: string,
+    publishedAt?: Date | string,
+    lang = "en",
+    tags?: string[],
+    image?: string,
+  ) => {
+    const absoluteUrl = new URL(url, site.options.location).href;
+    const absoluteImage = new URL(
+      image || "/assets/avatar-pixel.png",
+      site.options.location,
+    ).href;
+    const person = {
+      "@type": "Person",
+      "@id": "https://pharzan.com/#farzan-tinati",
+      name: "Farzan Tinati",
+      url: "https://pharzan.com/me/",
+      image: "https://pharzan.com/assets/avatar-pixel.png",
+      jobTitle: "Software Engineer",
+      sameAs: [
+        "https://www.linkedin.com/in/pharzan",
+        "https://github.com/pharzan",
+      ],
+    };
+
+    let data: Record<string, unknown>;
+    if (url.startsWith("/posts/") && url !== "/posts/") {
+      data = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: title,
+        description,
+        url: absoluteUrl,
+        mainEntityOfPage: absoluteUrl,
+        image: absoluteImage,
+        datePublished: publishedAt
+          ? new Date(publishedAt).toISOString()
+          : undefined,
+        inLanguage: lang,
+        keywords: tags,
+        author: person,
+        publisher: person,
+      };
+    } else if (url === "/") {
+      data = {
+        "@context": "https://schema.org",
+        "@graph": [
+          person,
+          {
+            "@type": "WebSite",
+            "@id": "https://pharzan.com/#website",
+            name: "Farzan Tinati",
+            url: absoluteUrl,
+            description,
+            inLanguage: lang,
+            author: { "@id": person["@id"] },
+          },
+        ],
+      };
+    } else if (url === "/me/") {
+      data = { "@context": "https://schema.org", ...person };
+    } else {
+      return "";
+    }
+
+    // Prevent user-authored metadata from closing the JSON-LD script element.
+    return JSON.stringify(data).replaceAll("<", "\\u003c");
+  },
+);
+
 site.filter("postAudio", (url: string) => {
   const translation = url.match(
     /^\/posts\/([a-z0-9][a-z0-9-]*)\/([a-z]{2,3}(?:-[a-z0-9]{2,8})*)\/$/i,
@@ -138,7 +211,6 @@ site.use(feed({
 }));
 site.copy("assets");
 site.copy("404.html");
-site.use(metas());
 site.use(sitemap());
 site.use(search());
 site.use(date());
