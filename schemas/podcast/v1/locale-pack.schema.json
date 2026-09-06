@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from scripts/podcast/schemas. Do not edit this JSON file directly.",
+  "$id": "locale-pack.schema.json",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "schema_version",
+    "locale",
+    "base_wpm",
+    "pace_multipliers",
+    "delivery",
+    "register"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "type": "number"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "base_wpm": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "pace_multipliers": {
+      "type": "object",
+      "patternProperties": {
+        "^(.*)$": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        }
+      }
+    },
+    "delivery": {
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "tone",
+        "pace",
+        "emphasis",
+        "pause_after"
+      ],
+      "properties": {
+        "tone": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pace": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "emphasis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pause_after": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "register": {
+      "type": "string"
+    }
+  }
+}

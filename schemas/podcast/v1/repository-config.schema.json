@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from scripts/podcast/schemas. Do not edit this JSON file directly.",
+  "$id": "repository-config.schema.json",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "schema_version",
+    "podcasts_root",
+    "templates_root",
+    "provider",
+    "research",
+    "audio"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "type": "number"
+    },
+    "podcasts_root": {
+      "type": "string"
+    },
+    "templates_root": {
+      "type": "string"
+    },
+    "provider": {
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "project",
+        "location",
+        "editing_model",
+        "tts_model"
+      ],
+      "properties": {
+        "project": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "location": {
+          "type": "string"
+        },
+        "editing_model": {
+          "type": "string"
+        },
+        "tts_model": {
+          "type": "string"
+        }
+      }
+    },
+    "research": {
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "command",
+        "maximum_retries"
+      ],
+      "properties": {
+        "command": {
+          "type": "string"
+        },
+        "maximum_retries": {
+          "minimum": 0,
+          "maximum": 2,
+          "type": "integer"
+        }
+      }
+    },
+    "audio": {
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "maximum_rendered_request_utf8_bytes",
+        "maximum_estimated_scene_seconds",
+        "host_voice",
+        "guest_voice",
+        "sample_rate_hz",
+        "bitrate",
+        "pauses_ms"
+      ],
+      "properties": {
+        "maximum_rendered_request_utf8_bytes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "maximum_estimated_scene_seconds": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "host_voice": {
+          "type": "string"
+        },
+        "guest_voice": {
+          "type": "string"
+        },
+        "sample_rate_hz": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "bitrate": {
+          "type": "string"
+        },
+        "pauses_ms": {
+          "additionalProperties": false,
+          "type": "object",
+          "required": [
+            "none",
+            "short",
+            "medium",
+            "long"
+          ],
+          "properties": {
+            "none": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "short": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "medium": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "long": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from scripts/podcast/schemas. Do not edit this JSON file directly.",
+  "$id": "pass-response.schema.json",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "candidate_markdown",
+    "review"
+  ],
+  "properties": {
+    "candidate_markdown": {
+      "minLength": 1,
+      "pattern": "## [a-z0-9][a-z0-9_:-]*[\\s\\S]+### [a-z0-9][a-z0-9-]* \\| (host|guest) \\| [a-z_]+",
+      "type": "string"
+    },
+    "review": {
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "summary",
+        "source_coverage",
+        "changes",
+        "placeholders",
+        "claims",
+        "proposals",
+        "validations",
+        "security_findings"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "source_coverage": {
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "source_id",
+              "outcome",
+              "turn_ids"
+            ],
+            "properties": {
+              "source_id": {
+                "type": "string"
+              },
+              "outcome": {
+                "anyOf": [
+                  {
+                    "const": "mapped",
+                    "type": "string"
+                  },
+                  {
+                    "const": "deferred",
+                    "type": "string"
+                  },
+                  {
+                    "const": "proposed_removal",
+                    "type": "string"
+                  }
+                ]
+              },
+              "turn_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "id",
+              "kind",
+              "turn_ids",
+              "substance_changed",
+              "disposition_required",
+              "rationale"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "turn_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "substance_changed": {
+                "type": "boolean"
+              },
+              "disposition_required": {
+                "type": "boolean"
+              },
+              "rationale": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "placeholders": {
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "id",
+              "type",
+              "turn_ids",
+              "status",
+              "question"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "turn_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "status": {
+                "anyOf": [
+                  {
+                    "const": "open",
+                    "type": "string"
+                  },
+                  {
+                    "const": "resolved",
+                    "type": "string"
+                  }
+                ]
+              },
+              "question": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "id",
+              "turn_ids",
+              "text",
+              "classification",
+              "material",
+              "status",
+              "reason",
+              "sources"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "turn_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "text": {
+                "type": "string"
+              },
+              "classification": {
+                "anyOf": [
+                  {
+                    "const": "external_fact",
+                    "type": "string"
+                  },
+                  {
+                    "const": "personal_claim",
+                    "type": "string"
+                  },
+                  {
+                    "const": "opinion",
+                    "type": "string"
+                  },
+                  {
+                    "const": "prediction",
+                    "type": "string"
+                  }
+                ]
+              },
+              "material": {
+                "type": "boolean"
+              },
+              "status": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "proposals": {
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "id",
+              "type",
+              "status",
+              "affected_turn_ids",
+              "suggested_text",
+              "rationale",
+              "claim_ids"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "status": {
+                "anyOf": [
+                  {
+                    "const": "pending",
+                    "type": "string"
+                  },
+                  {
+                    "const": "accepted",
+                    "type": "string"
+                  },
+                  {
+                    "const": "rejected",
+                    "type": "string"
+                  },
+                  {
+                    "const": "revised",
+                    "type": "string"
+                  },
+                  {
+                    "const": "deferred",
+                    "type": "string"
+                  }
+                ]
+              },
+              "affected_turn_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "suggested_text": {
+                "type": "string"
+              },
+              "rationale": {
+                "type": "string"
+              },
+              "claim_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "validations": {
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "type": "object",
+            "required": [
+              "code",
+              "severity",
+              "pass",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "severity": {
+                "anyOf": [
+                  {
+                    "const": "warning",
+                    "type": "string"
+                  },
+                  {
+                    "const": "blocking",
+                    "type": "string"
+                  }
+                ]
+              },
+              "pass": {
+                "type": "boolean"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "security_findings": {
+          "type": "array",
+          "items": {
+            "additionalProperties": true,
+            "type": "object",
+            "properties": {}
+          }
+        }
+      }
+    }
+  }
+}

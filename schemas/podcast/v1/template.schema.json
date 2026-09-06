@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from scripts/podcast/schemas. Do not edit this JSON file directly.",
+  "$id": "template.schema.json",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "title",
+    "default_locale",
+    "supported_locales",
+    "roles",
+    "sections",
+    "pipeline",
+    "placeholder_types"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "type": "number"
+    },
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "default_locale": {
+      "type": "string"
+    },
+    "supported_locales": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "roles": {
+      "type": "object",
+      "patternProperties": {
+        "^(.*)$": {
+          "additionalProperties": false,
+          "type": "object",
+          "required": [
+            "voice",
+            "allowed_intents"
+          ],
+          "properties": {
+            "voice": {
+              "type": "string"
+            },
+            "allowed_intents": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "required"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "repeatable": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "pipeline": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "const": "structure",
+            "type": "string"
+          },
+          {
+            "const": "content",
+            "type": "string"
+          },
+          {
+            "const": "performance",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "placeholder_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

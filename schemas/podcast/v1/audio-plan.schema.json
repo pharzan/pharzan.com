@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from scripts/podcast/schemas. Do not edit this JSON file directly.",
+  "$id": "audio-plan.schema.json",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "schema_version",
+    "planner_version",
+    "episode",
+    "script_sha256",
+    "model",
+    "project",
+    "location",
+    "locale",
+    "voices",
+    "scenes",
+    "estimated_base_usd",
+    "retry_reserved_usd",
+    "plan_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "type": "number"
+    },
+    "planner_version": {
+      "const": 1,
+      "type": "number"
+    },
+    "episode": {
+      "type": "string"
+    },
+    "script_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "project": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "location": {
+      "type": "string"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "voices": {
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "host",
+        "guest"
+      ],
+      "properties": {
+        "host": {
+          "type": "string"
+        },
+        "guest": {
+          "type": "string"
+        }
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "turn_ids",
+          "request",
+          "request_sha256",
+          "utf8_bytes",
+          "estimated_seconds",
+          "pause_after_ms",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "turn_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "request": {
+            "type": "string"
+          },
+          "request_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "utf8_bytes": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "estimated_seconds": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "pause_after_ms": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "const": "pending",
+                "type": "string"
+              },
+              {
+                "const": "generated",
+                "type": "string"
+              },
+              {
+                "const": "approved",
+                "type": "string"
+              }
+            ]
+          },
+          "active_candidate": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "estimated_base_usd": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "retry_reserved_usd": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "plan_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    }
+  }
+}

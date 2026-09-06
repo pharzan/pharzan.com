@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from scripts/podcast/schemas. Do not edit this JSON file directly.",
+  "$id": "research-response.schema.json",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_id",
+    "claims"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "type": "number"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "claim_id",
+          "verdict",
+          "confidence",
+          "reasoning",
+          "sources"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "verdict": {
+            "anyOf": [
+              {
+                "const": "verified",
+                "type": "string"
+              },
+              {
+                "const": "verified_with_caveat",
+                "type": "string"
+              },
+              {
+                "const": "contradicted",
+                "type": "string"
+              },
+              {
+                "const": "conflicting_sources",
+                "type": "string"
+              },
+              {
+                "const": "not_found",
+                "type": "string"
+              }
+            ]
+          },
+          "confidence": {
+            "minimum": 0,
+            "maximum": 1,
+            "type": "number"
+          },
+          "reasoning": {
+            "type": "string"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "additionalProperties": false,
+              "type": "object",
+              "required": [
+                "url",
+                "title",
+                "publisher",
+                "published_or_updated_at",
+                "accessed_at",
+                "evidence_note",
+                "source_type",
+                "primary_or_authoritative"
+              ],
+              "properties": {
+                "url": {
+                  "pattern": "^https://",
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "published_or_updated_at": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "accessed_at": {
+                  "type": "string"
+                },
+                "evidence_note": {
+                  "type": "string"
+                },
+                "source_type": {
+                  "type": "string"
+                },
+                "primary_or_authoritative": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

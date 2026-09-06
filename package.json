@@ -6,20 +6,27 @@
     "node": ">=20"
   },
   "scripts": {
+    "podcast": "node --import tsx scripts/podcast.ts",
+    "schemas:podcast": "node --import tsx scripts/generate-podcast-schemas.ts",
+    "schemas:podcast:check": "node --import tsx scripts/generate-podcast-schemas.ts --check",
     "generate-audio": "node --import tsx scripts/generate-audio.ts",
     "translate-post": "node --import tsx scripts/translate-post.ts",
     "test:audio": "node --import tsx --test scripts/generate-audio.test.ts",
     "test:translation": "node --import tsx --test scripts/translate-post.test.ts",
-    "test": "node --import tsx --test scripts/*.test.ts",
+    "test:podcast": "node --import tsx scripts/generate-podcast-schemas.ts --check && node --import tsx --test scripts/podcast/*.test.ts",
+    "test": "node --import tsx scripts/generate-podcast-schemas.ts --check && node --import tsx --test scripts/*.test.ts scripts/podcast/*.test.ts",
     "typecheck": "tsc --noEmit",
     "typecheck:audio": "tsc --noEmit"
   },
   "packageManager": "pnpm@11.5.0",
   "dependencies": {
     "@google/genai": "^2.17.1",
+    "@sinclair/typebox": "^0.34.52",
+    "ajv": "^8.20.0",
     "gray-matter": "^4.0.3",
     "remark-parse": "^11.0.0",
-    "unified": "^11.0.5"
+    "unified": "^11.0.5",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",

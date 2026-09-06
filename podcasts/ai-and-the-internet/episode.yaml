@@ -1,0 +1,18 @@
+schema_version: 1
+slug: ai-and-the-internet
+created_at: 2026-08-17T15:51:34.566Z
+template: interview@0.1.0
+locale: en-US
+source_sha256: 0b329ab2d1864d9724d6337fb9cb2c19d8c9698e9ca84c3295d70325dea18d16
+roles:
+  host:
+    display_name: Host
+    voice: Kore
+  guest:
+    display_name: Guest
+    voice: Orus
+provider:
+  project: pharzan
+  location: global
+  editing_model: agy-default
+  tts_model: gemini-2.5-pro-tts

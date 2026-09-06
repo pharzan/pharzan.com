@@ -1,0 +1,23 @@
+schema_version: 1
+podcasts_root: podcasts
+templates_root: podcast-templates
+provider:
+  project: pharzan
+  location: global
+  editing_model: agy-default
+  tts_model: gemini-2.5-pro-tts
+research:
+  command: agy
+  maximum_retries: 2
+audio:
+  maximum_rendered_request_utf8_bytes: 7500
+  maximum_estimated_scene_seconds: 300
+  host_voice: Kore
+  guest_voice: Orus
+  sample_rate_hz: 24000
+  bitrate: 64k
+  pauses_ms:
+    none: 0
+    short: 250
+    medium: 500
+    long: 900

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from scripts/podcast/schemas. Do not edit this JSON file directly.",
+  "$id": "assembly.schema.json",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "schema_version",
+    "plan_sha256",
+    "selected",
+    "loudnorm",
+    "master_sha256",
+    "mp3_sha256",
+    "assembled_at",
+    "approved"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "type": "number"
+    },
+    "plan_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "selected": {
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "scene_id",
+          "turn_ids",
+          "candidate_id",
+          "audio_sha256",
+          "start_seconds",
+          "end_seconds"
+        ],
+        "properties": {
+          "scene_id": {
+            "type": "string"
+          },
+          "turn_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "audio_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "start_seconds": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "end_seconds": {
+            "minimum": 0,
+            "type": "number"
+          }
+        }
+      }
+    },
+    "loudnorm": {
+      "type": "object",
+      "patternProperties": {
+        "^(.*)$": {}
+      }
+    },
+    "master_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "mp3_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "assembled_at": {
+      "type": "string"
+    },
+    "approved": {
+      "type": "boolean"
+    },
+    "approved_at": {
+      "type": "string"
+    }
+  }
+}

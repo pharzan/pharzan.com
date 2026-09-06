@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from scripts/podcast/schemas. Do not edit this JSON file directly.",
+  "$id": "episode.schema.json",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "schema_version",
+    "slug",
+    "created_at",
+    "template",
+    "locale",
+    "source_sha256",
+    "roles",
+    "provider"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "type": "number"
+    },
+    "slug": {
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "template": {
+      "const": "interview@0.1.0",
+      "type": "string"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "roles": {
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "host",
+        "guest"
+      ],
+      "properties": {
+        "host": {
+          "additionalProperties": false,
+          "type": "object",
+          "required": [
+            "display_name",
+            "voice"
+          ],
+          "properties": {
+            "display_name": {
+              "type": "string"
+            },
+            "voice": {
+              "type": "string"
+            }
+          }
+        },
+        "guest": {
+          "additionalProperties": false,
+          "type": "object",
+          "required": [
+            "display_name",
+            "voice"
+          ],
+          "properties": {
+            "display_name": {
+              "type": "string"
+            },
+            "voice": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "provider": {
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "project",
+        "location",
+        "editing_model",
+        "tts_model"
+      ],
+      "properties": {
+        "project": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "location": {
+          "type": "string"
+        },
+        "editing_model": {
+          "type": "string"
+        },
+        "tts_model": {
+          "type": "string"
+        }
+      }
+    },
+    "approved_script_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "approved_audio_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    }
+  }
+}

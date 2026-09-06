@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "episode": "episode-1",
+  "script_sha256": "18d129a74abd9d84c4fdcb35d8c6b62daf292a99174fdf3406b6b0d057102429",
+  "source_sha256": "0b329ab2d1864d9724d6337fb9cb2c19d8c9698e9ca84c3295d70325dea18d16",
+  "template": "interview@0.1.0",
+  "locale": "en-US",
+  "approved_at": "2026-08-17T17:25:29.253Z",
+  "pass_attempt": 1,
+  "review_sha256": "4199100e089a8a48ec8ef3c337c22d95488f6fbb04cea957afc7f0f936af0987"
+}

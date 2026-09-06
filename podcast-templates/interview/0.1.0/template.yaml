@@ -1,0 +1,26 @@
+schema_version: 1
+id: interview
+version: 0.1.0
+title: Original interview
+default_locale: en-US
+supported_locales: [en-US]
+roles:
+  host:
+    voice: Kore
+    allowed_intents: [introduction, question, follow_up, summary, transition, sign_off]
+  guest:
+    voice: Orus
+    allowed_intents: [answer, clarification, example, reflection, recommendation]
+sections:
+  - {id: cold_open, required: false}
+  - {id: welcome, required: true}
+  - {id: orientation, required: true}
+  - {id: concrete_hook, required: true}
+  - {id: mental_model, required: false}
+  - {id: deep_dive, required: true, repeatable: true}
+  - {id: tradeoffs_and_challenges, required: true}
+  - {id: wider_lens, required: false}
+  - {id: takeaways_and_links, required: false}
+  - {id: sign_off, required: true}
+pipeline: [structure, content, performance]
+placeholder_types: [AUTHOR, GUEST, FACT, SOURCE, EXAMPLE, CLARIFY, PRONUNCIATION, TRANSITION]

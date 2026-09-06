@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Generated from scripts/podcast/schemas. Do not edit this JSON file directly.",
+  "$id": "state.schema.json",
+  "additionalProperties": false,
+  "type": "object",
+  "required": [
+    "schema_version",
+    "episode",
+    "phase",
+    "events"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "type": "number"
+    },
+    "episode": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "current_pass": {
+      "anyOf": [
+        {
+          "const": "structure",
+          "type": "string"
+        },
+        {
+          "const": "content",
+          "type": "string"
+        },
+        {
+          "const": "performance",
+          "type": "string"
+        }
+      ]
+    },
+    "candidate_path": {
+      "type": "string"
+    },
+    "candidate_sha256": {
+      "type": "string"
+    },
+    "approved_script_sha256": {
+      "type": "string"
+    },
+    "audio_plan_sha256": {
+      "type": "string"
+    },
+    "events": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  }
+}

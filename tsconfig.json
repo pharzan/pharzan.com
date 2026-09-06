@@ -12,5 +12,13 @@
     "target": "ES2022",
     "types": ["node"]
   },
-  "include": ["scripts/generate-audio.ts", "scripts/generate-audio.test.ts"]
+  "include": [
+    "scripts/generate-audio.ts",
+    "scripts/generate-audio.test.ts",
+    "scripts/translate-post.ts",
+    "scripts/translate-post.test.ts",
+    "scripts/generate-podcast-schemas.ts",
+    "scripts/podcast.ts",
+    "scripts/podcast/**/*.ts"
+  ]
 }

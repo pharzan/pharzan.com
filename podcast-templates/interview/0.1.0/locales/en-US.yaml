@@ -1,0 +1,14 @@
+schema_version: 1
+locale: en-US
+base_wpm: 150
+pace_multipliers:
+  slow: 0.80
+  measured: 0.90
+  conversational: 1.00
+  brisk: 1.15
+delivery:
+  tone: [warm, curious, reflective, serious, amused, skeptical]
+  pace: [slow, measured, conversational, brisk]
+  emphasis: [light, moderate, strong]
+  pause_after: [none, short, medium, long]
+register: Natural contemporary English; warm, thoughtful, responsive, and conversational.
