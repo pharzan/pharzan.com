@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "source": "posts/retro-ai-rotary-phone.md",
+  "output": "assets/audio/retro-ai-rotary-phone.mp3",
+  "generations": [
+    {
+      "id": "3767bfd4-086a-4e6a-a76a-1ff2d992c90f",
+      "startedAt": "2026-10-11T19:03:25.075Z",
+      "contentHash": "25467d565772027375851918ceab1656d1b2c0a417638d52ad98c15c8ced68b4",
+      "model": "gemini-2.5-pro-tts",
+      "voice": "Orus",
+      "provider": "vertex-ai",
+      "project": "pharzan",
+      "location": "global",
+      "prompt": "Speak the article in natural, contemporary English, as if the author is\nexplaining their ideas directly to one friend in a relaxed conversation.\n\nUse an informal but thoughtful cadence, natural spoken pronunciation and\ncontractions, varied sentence rhythm, and brief pauses between ideas. Keep the\ndelivery warm, confident, and unhurried.\n\nPreserve the meaning and structure, but adapt formal written constructions into\nidiomatic spoken English when needed. Do not summarize, introduce, conclude,\ncomment on, or add ideas. Avoid an audiobook, literary recitation, lecture,\nnewsreader, theatrical, ceremonial, overly enthusiastic, or sales-oriented tone.",
+      "pricing": {
+        "currency": "USD",
+        "inputPerMillionTokens": 1,
+        "outputPerMillionTokens": 20
+      },
+      "status": "completed",
+      "inputTokens": 1894,
+      "outputTokens": 13405,
+      "estimatedUsd": 0.26999399999999996,
+      "chunks": [
+        {
+          "index": 0,
+          "hash": "0b938d9e5618c8ddf211dcca7c9bac3138778b25b3b8e0f1cc8ff8ab2a327967",
+          "status": "completed",
+          "inputTokens": 1409,
+          "outputTokens": 10368,
+          "estimatedUsd": 0.20876899999999998,
+          "usageSource": "api"
+        },
+        {
+          "index": 1,
+          "hash": "74fd649ff573f1bc08babd26a6737a058545430b176fec83e444de8ecdca469e",
+          "status": "completed",
+          "inputTokens": 485,
+          "outputTokens": 3037,
+          "estimatedUsd": 0.061225,
+          "usageSource": "api"
+        }
+      ],
+      "completedAt": "2026-10-11T19:08:29.225Z"
+    }
+  ],
+  "currentHash": "25467d565772027375851918ceab1656d1b2c0a417638d52ad98c15c8ced68b4"
+}

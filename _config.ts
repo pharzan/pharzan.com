@@ -6,6 +6,7 @@ import date from "lume/plugins/date.ts";
 import codeHighlight from "lume/plugins/code_highlight.ts";
 import inline from "lume/plugins/inline.ts";
 import llms from "https://deno.land/x/lume_plugin_llms@v0.1.2/mod.ts";
+import katex from "lume/plugins/katex.ts";
 
 const site = lume({
   location: new URL("https://pharzan.com"),
@@ -217,5 +218,15 @@ site.use(date());
 site.use(codeHighlight());
 site.use(inline());
 site.use(llms());
+site.use(katex({
+  cssFile: "/assets/styles/katex.css",
+  fontsFolder: "/assets/fonts",
+  options: {
+    delimiters: [
+      { left: "$$", right: "$$", display: true },
+      { left: "$", right: "$", display: false },
+    ],
+  },
+}));
 
 export default site;

@@ -467,12 +467,20 @@
 .me-page img,
 .me-page video {
   max-width: 100%;
+  box-sizing: border-box;
   display: block;
   margin: 1.5em auto;
   padding: 0.5em;
   border: 1px solid var(--border);
   border-radius: 0;
   background: var(--code-bg);
+}
+
+.me-page img.wide-crop {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center 48%;
 }
 
 /* ===== Post list - Terminal style ===== */
@@ -738,6 +746,168 @@
 
 @media print {
   .me-page .audio-player {
+    display: none;
+  }
+}
+
+/* ===== Article video player - Terminal style ===== */
+.me-page .video-player {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 1.5em 0;
+  padding: 0.65em 0.75em;
+  border: 1px solid var(--border);
+  background: var(--code-bg);
+  color: var(--text);
+  font-size: 0.85em;
+}
+
+.me-page .video-player-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #000;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.me-page .video-player-screen video,
+.me-page .video-player video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.me-page .video-player-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.me-page .video-player[data-playing="true"] .video-player-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.me-page .video-player-overlay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 2px solid var(--accent);
+  background: var(--bg);
+  color: var(--accent);
+  font-size: 1.5em;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.me-page .video-player-overlay:hover .video-player-overlay-btn {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.me-page .video-player-controls {
+  display: grid;
+  grid-template-columns: auto auto auto minmax(5rem, 1fr) auto auto;
+  align-items: center;
+  gap: 0.6em;
+  margin-top: 0.65em;
+}
+
+.me-page .video-player-controls[hidden] {
+  display: none;
+}
+
+.me-page .video-player-toggle,
+.me-page .video-player-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  min-height: 2.25rem;
+  padding: 0.35em 0.7em;
+  border: 1px solid var(--accent);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--accent);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.me-page .video-player-btn {
+  padding: 0.35em 0.55em;
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.me-page .video-player-toggle:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.me-page .video-player-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.me-page .video-player-time {
+  min-width: 6.5em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.me-page .video-player-speed-label {
+  display: inline-flex;
+}
+
+.me-page .video-player-speed {
+  min-height: 2.25rem;
+  padding: 0.25em 1.8em 0.25em 0.55em;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.me-page .video-player-progress {
+  width: 100%;
+  min-width: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .me-page .video-player-controls {
+    grid-template-columns: 1fr auto auto auto auto;
+  }
+
+  .me-page .video-player-progress {
+    grid-column: 1 / -1;
+  }
+}
+
+@media print {
+  .me-page .video-player {
     display: none;
   }
 }

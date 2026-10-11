@@ -1,6 +1,27 @@
+# Build output & caches
 _site
 _cache
-.DS_Store
 .firebase
-node_modules
 .audio-cache/chunks/
+
+# Local dependencies
+node_modules
+
+# Local workspace backups & experiments
+backup/
+podcasts/
+
+# Environment & credentials
+.env
+.env.*
+!.env.example
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Editor artifacts
+.vscode/
+.idea/
